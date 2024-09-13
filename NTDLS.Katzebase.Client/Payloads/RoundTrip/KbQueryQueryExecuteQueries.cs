@@ -7,9 +7,9 @@ namespace NTDLS.Katzebase.Client.Payloads.RoundTrip
     {
         public Guid ConnectionId { get; set; }
         public List<string> Statements { get; set; }
-        public KbInsensitiveDictionary<KbConstant>? UserParameters { get; set; }
+        public KbInsensitiveDictionary<KbConstant?>? UserParameters { get; set; }
 
-        public KbQueryQueryExecuteQueries(Guid connectionId, List<string> statements, KbInsensitiveDictionary<KbConstant>? userParameters)
+        public KbQueryQueryExecuteQueries(Guid connectionId, List<string> statements, KbInsensitiveDictionary<KbConstant?>? userParameters)
         {
             ConnectionId = connectionId;
             Statements = statements;

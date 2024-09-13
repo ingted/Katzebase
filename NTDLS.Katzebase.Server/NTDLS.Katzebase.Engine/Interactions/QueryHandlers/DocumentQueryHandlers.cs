@@ -130,7 +130,8 @@ namespace NTDLS.Katzebase.Engine.Interactions.QueryHandlers
                         }
                         else if (updateValue.Value is FunctionConstantParameter functionConstantParameter)
                         {
-                            fieldValue = functionConstantParameter.RawValue;
+                            //fieldValue = functionConstantParameter.RawValue;
+                            fieldValue = functionConstantParameter.FinalValue;
                         }
                         else
                         {
