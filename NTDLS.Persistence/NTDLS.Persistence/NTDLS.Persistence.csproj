@@ -1,0 +1,51 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <ApplicationIcon>Image.ico</ApplicationIcon>
+    <Title>NTDLS.Persistence</Title>
+    <Authors>NetworkDLS</Authors>
+    <Company>NetworkDLS</Company>
+    <Product>NTDLS.Persistence</Product>
+    <Copyright>Copyright © 2024 NetworkDLS</Copyright>
+    <PackageProjectUrl>https://github.com/NTDLS/NTDLS.Persistence</PackageProjectUrl>
+    <PackageIcon>Image.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/NTDLS/NTDLS.Persistence</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>serialization;disk;persistence</PackageTags>
+    <PackageReleaseNotes>
+      Corrected license.
+    </PackageReleaseNotes>
+    <Version>1.2.1</Version>
+    <EnableNETAnalyzers>False</EnableNETAnalyzers>
+    <IncludeSymbols>True</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <Description>Helpers for reading and writing serialized objects to/from files. Helpful for configuration files.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="Image.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\Images\Image.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+</Project>

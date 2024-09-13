@@ -1,0 +1,161 @@
+/*
+Create schema WordList
+Create schema WordList:Words with (PageSize = 100)
+*/
+
+--set TraceWaitTimes true
+
+select top 100
+	sw.Id as SourceWordId,
+	ToProper(sw.Text) as SourceWord,
+	sl.Name as SourceLanguage,
+	tw.Id as TargetWordId,	
+	ToProper(tw.Text) as TargetWord,
+	tl.Name as TargetLanguage
+from
+	WordList:Word as sw
+inner join WordList:Language as sl
+	on sl.Id = sw.LanguageId
+inner join WordList:Synonym as S
+	on S.SourceWordId = sw.Id
+inner join WordList:Word as tw
+	on tw.Id = S.TargetWordId
+inner join WordList:Language as tl
+	on tl.Id = TW.LanguageId
+where
+	sw.Text LIKE 'Ta%'
+	and sw.Text LIKE '%le'
+	and sl.Name = 'English'
+	and tl.Name = 'English'
+	and sw.Text != tw.Text
+order by
+	sw.Text,
+	tw.Text
+
+--assumption
+/*
+exec showcachepartitions
+
+exec showcacheallocations
+
+exec showlocks
+
+select top 10
+	W.*
+from
+	WordList:Word as W
+inner join WordList:Language as L
+	on L.Id = W.LanguageId
+where
+	W.Text like 'Gym'
+*/
+
+/*
+select
+	sw.Id,
+	sw.Text,
+	sw.LanguageId
+from
+	WordList::Word as sw --(15 rows affected)
+where
+	sw.Text LIKE 'As%'
+	and sw.Text LIKE '%to'
+	and sw.Text like '%in%'
+	--and sw.LanguageId between 3 and 5
+	and sw.LanguageId >= 3
+	and sw.LanguageId <= 5
+	and sw.Id > 1000
+	OR sw.Text like 'Ca%'
+	and sw.Text like '%al'
+	and sw.Text like '%na%'
+	and sw.LanguageId = 4
+	OR sw.Text like 'Ca%'
+	and sw.Text like '%al'
+	and sw.Text like '%na%'
+	and sw.LanguageId = 5
+order by
+	sw.Text
+*/
+
+	/*
+	sw.Text LIKE 'As%'
+	and (
+		sw.Text LIKE '%to'
+		and sw.Text like '%in%'
+	)
+	and sw.LanguageId = 3
+	and sw.Id = 100 --This is to test non-composite index mathcing.
+	OR sw.Text like 'Ca%'
+	and sw.Text like '%al'
+	and sw.Text like '%na%'
+	and sw.LanguageId = 4
+	OR sw.Text like 'Ca%'
+	and sw.Text like '%al'
+	and sw.Text like '%na%'
+	and sw.LanguageId = 5
+	*/
+--select * from WordList::FlatTranslate
+--where German = 'einbruch' and Dutch = 'inbraak'
+
+/*
+	sw.Text = 'Aalto'
+	and sw.Text = 'Tulee'
+	and sw.Text = 'savi'
+
+select
+	*
+from
+	WordList:Word as W
+where
+	W.Text like '%George%'
+*/
+--exec showversion(null)
+
+/*
+select top 10
+	*
+from
+	WordList:Word as W
+inner join WordList:Language as L
+	on L.Id = W.LanguageId
+where
+	W.Text = 'Gym'
+*/
+/*
+select
+	sw.Text
+from
+	WordList:Word as sw
+where
+	sw.Text = 'Gym'
+	--'Gym' = sw.Text
+*/
+
+--set ExplainQuery true
+--no indexes: 741,185ms
+
+/*
+select
+	sw.Id as SourceWordId,
+	sw.Text as SourceWord,
+	sl.Name as SourceLanguage,
+	tw.Id as TargetWordId,	
+	tw.Text as TargetWord,
+	tl.Name as TargetLanguage
+from
+	WordList:Word as sw
+inner join WordList:Language as sl
+	on sl.Id = sw.LanguageId
+inner join WordList:Synonym as S
+	on S.SourceWordId = sw.Id
+inner join WordList:Word as tw
+	on tw.Id = S.TargetWordId
+inner join WordList:Language as tl
+	on tl.Id = TW.LanguageId
+where
+	sl.Name = 'English'
+	and (
+		sw.Text = 'Gym'
+		or sw.Text = 'Arm'
+	)
+*/

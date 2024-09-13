@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NTDLS.Katzebase.Management", "NTDLS.Katzebase.Management\NTDLS.Katzebase.Management.csproj", "{B5D9EA25-8D55-48CD-BBCE-8E27F8BE8F91}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{18CA9F65-1B7A-4AD5-90FD-FCC99F6D41E3}"
+	ProjectSection(SolutionItems) = preProject
+		@Installers\Setup.Iss = @Installers\Setup.Iss
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NTDLS.Katzebase.Client", "..\NTDLS.Katzebase.Client\NTDLS.Katzebase.Client.csproj", "{89FB398C-D467-4102-99D3-E9C63B635676}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NTDLS.Persistence", "..\NTDLS.Persistence\NTDLS.Persistence\NTDLS.Persistence.csproj", "{20824F82-6B6C-4276-AE27-A2AC2774D2F0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NTDLS.WinFormsHelpers", "..\NTDLS.WinFormsHelpers\NTDLS.WinFormsHelpers\NTDLS.WinFormsHelpers.csproj", "{19129E36-0FD5-4381-BF8D-6ACC9B3A3315}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B5D9EA25-8D55-48CD-BBCE-8E27F8BE8F91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5D9EA25-8D55-48CD-BBCE-8E27F8BE8F91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5D9EA25-8D55-48CD-BBCE-8E27F8BE8F91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5D9EA25-8D55-48CD-BBCE-8E27F8BE8F91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89FB398C-D467-4102-99D3-E9C63B635676}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89FB398C-D467-4102-99D3-E9C63B635676}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89FB398C-D467-4102-99D3-E9C63B635676}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89FB398C-D467-4102-99D3-E9C63B635676}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20824F82-6B6C-4276-AE27-A2AC2774D2F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20824F82-6B6C-4276-AE27-A2AC2774D2F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20824F82-6B6C-4276-AE27-A2AC2774D2F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20824F82-6B6C-4276-AE27-A2AC2774D2F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19129E36-0FD5-4381-BF8D-6ACC9B3A3315}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19129E36-0FD5-4381-BF8D-6ACC9B3A3315}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19129E36-0FD5-4381-BF8D-6ACC9B3A3315}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19129E36-0FD5-4381-BF8D-6ACC9B3A3315}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {16ADDA6D-28A3-4730-94D0-61E6D3E723B0}
+	EndGlobalSection
+EndGlobal

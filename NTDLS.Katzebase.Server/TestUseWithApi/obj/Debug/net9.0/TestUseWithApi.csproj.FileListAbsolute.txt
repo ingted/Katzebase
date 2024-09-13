@@ -1,0 +1,6 @@
+G:\git\NTDLS.Katzebase.Server\TestUseWithApi\obj\Debug\net9.0\TestUseWithApi.csproj.AssemblyReference.cache
+G:\git\NTDLS.Katzebase.Server\TestUseWithApi\obj\Debug\net9.0\TestUseWithApi.GeneratedMSBuildEditorConfig.editorconfig
+G:\git\NTDLS.Katzebase.Server\TestUseWithApi\obj\Debug\net9.0\TestUseWithApi.AssemblyInfoInputs.cache
+G:\git\NTDLS.Katzebase.Server\TestUseWithApi\obj\Debug\net9.0\TestUseWithApi.AssemblyInfo.cs
+G:\git\NTDLS.Katzebase.Server\TestUseWithApi\obj\Debug\net9.0\TestUseWithApi.csproj.CoreCompileInputs.cache
+G:\git\NTDLS.Katzebase.Server\TestUseWithApi\obj\Debug\net9.0\TestUseWithApi.sourcelink.json

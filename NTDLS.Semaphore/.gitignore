@@ -1,0 +1,14 @@
+
+.vs/
+
+NTDLS.Semaphore/bin/
+
+NTDLS.Semaphore/obj/
+
+TestHarness/bin/
+
+TestHarness/obj/
+
+PerformanceTest/bin/
+
+PerformanceTest/obj/

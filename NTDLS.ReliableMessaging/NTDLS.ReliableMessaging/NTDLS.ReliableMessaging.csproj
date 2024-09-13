@@ -1,0 +1,59 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
+    <Title>NTDLS.ReliableMessaging</Title>
+    <Authors>NetworkDLS</Authors>
+    <Nullable>Enable</Nullable>
+    <Company>NetworkDLS</Company>
+    <Description>Simple, fast, secure and lightweight event or convention-based RPC implementation.</Description>
+    <Copyright>Copyright © 2024 NetworkDLS</Copyright>
+    <PackageProjectUrl>https://github.com/NTDLS/NTDLS.ReliableMessaging</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/NTDLS/NTDLS.ReliableMessaging</RepositoryUrl>
+    <RepositoryType>Git</RepositoryType>
+    <PackageReleaseNotes>
+      Documentation correction.
+    </PackageReleaseNotes>
+    <Version>1.10.9</Version>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageTags>rpc;tcpip;ipc;stream;encryption;messaging;message-framing;</PackageTags>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <IncludeSymbols>True</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <PackageIcon>128.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <OutputType>Library</OutputType>
+    <ApplicationIcon>Logo.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup Condition=" '$(BuildingPackage)' == 'true' ">
+    <Content Include="Logo.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\Images\128.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <!--<PackageReference Include="NTDLS.Helpers" Version="1.2.8" />
+    <PackageReference Include="NTDLS.Semaphore" Version="3.4.2" />-->
+    <PackageReference Include="protobuf-net" Version="3.2.30" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\NTDLS.Helpers\NTDLS.Helpers\NTDLS.Helpers.csproj" />
+    <ProjectReference Include="..\..\NTDLS.Semaphore\NTDLS.Semaphore\NTDLS.Semaphore.csproj" />
+  </ItemGroup>
+
+</Project>

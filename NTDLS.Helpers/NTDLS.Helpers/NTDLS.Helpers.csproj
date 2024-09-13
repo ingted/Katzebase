@@ -1,0 +1,43 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <IncludeSymbols>True</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <ApplicationIcon>Logo.ico</ApplicationIcon>
+    <Title>NTDLS.Helpers</Title>
+    <Authors>NetworkDLS</Authors>
+    <Company>NetworkDLS</Company>
+    <Product>NTDLS.Helpers</Product>
+    <Copyright>Copyright © 2024 NetworkDLS</Copyright>
+    <PackageProjectUrl>https://github.com/NTDLS/NTDLS.Helpers</PackageProjectUrl>
+    <PackageIcon>Logo.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/NTDLS/NTDLS.Helpers</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>netcore;nullability;simplification;conversion;task;helpers</PackageTags>
+    <PackageReleaseNotes>
+      Private->Public
+    </PackageReleaseNotes>
+    <Version>1.2.8</Version>
+    <EnableNETAnalyzers>False</EnableNETAnalyzers>
+    <Description>Helpers for dealing with nullable types, static analyzer, text, exceptions, tasks, async, conversion, etc..</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\Images\Logo.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>

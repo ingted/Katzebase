@@ -1,0 +1,15 @@
+# pack-refs with: peeled fully-peeled sorted 
+80e24e7cbda49ae8292f53fd1a4644d55d970498 refs/remotes/origin/master
+8e0633de9fe771cce9f1329dd5a8efc53fde307a refs/remotes/origin/robust_parse_impl
+e6265e5ce3954d7e484427a2e0a09935e9f109e2 refs/remotes/origin/robust_parsing
+0d093a6168281eb452c5933c430028677cffa16d refs/tags/0.10.0
+ce6a355643f2194fbeae98b63ed325cd88a553bb refs/tags/0.12.0
+74af9d9c54c06869a995eea050fec5ec5f555165 refs/tags/0.13.0
+7d783b9c06c63bd0a6ea9b4f0a32250fb3c32a85 refs/tags/0.14.0
+8c54513c356e787b3437efb63108956209bf544e refs/tags/0.15.0
+bf982bbb21f45428e38668e6199ed9bce1c1b0df refs/tags/0.6.0
+20a8251e1b0cef9304342a47c80c93361085457a refs/tags/0.7.0
+ce6f3880f16dced1383910a85d2060fa4e76e290 refs/tags/0.8.0
+79830bee3eaf58f88b8f4ef8ad1078663c3bf94f refs/tags/0.9.0
+89deb62f4112a35113f987ee500fdfcd7c1e06c0 refs/tags/post-index-optimize
+82591693dec0bfcd53b2b2b28d665c93d0d924a1 refs/tags/pre-index-optimize
