@@ -1,4 +1,5 @@
-﻿using NTDLS.Helpers;
+﻿using fs;
+using NTDLS.Helpers;
 using NTDLS.Katzebase.Client.Exceptions;
 using NTDLS.Katzebase.Engine.Interactions.Management;
 using NTDLS.Katzebase.Engine.Query.Tokenizers;
@@ -363,7 +364,7 @@ namespace NTDLS.Katzebase.Engine.Query.Constraints
                         endPosition = tokenizer.Position;
                     }
 
-                    var condition = new Condition(conditionPlaceholder, logicalConnector, left, logicalQualifier, right);
+                    var condition = new Condition(conditionPlaceholder, logicalConnector, left.toF(), logicalQualifier, right.toF());
 
                     if (right.StartsWith($"{leftHandAliasOfJoin}."))
                     {
@@ -468,11 +469,11 @@ namespace NTDLS.Katzebase.Engine.Query.Constraints
                     {
                         if (condition.Left?.IsConstant == false)
                         {
-                            AllFields.Add(new PrefixedField(condition.Left.Prefix, condition.Left?.Value ?? ""));
+                            AllFields.Add(new PrefixedField(condition.Left.Prefix, condition.Left?.Value?.s ?? ""));
                         }
                         if (condition.Right?.IsConstant == false)
                         {
-                            AllFields.Add(new PrefixedField(condition.Right.Prefix, condition.Right?.Value ?? ""));
+                            AllFields.Add(new PrefixedField(condition.Right.Prefix, condition.Right?.Value?.s ?? ""));
                         }
                         result.Append($"{condition.ConditionKey}: {condition.Left} {condition.LogicalQualifier}");
                     }
@@ -494,11 +495,11 @@ namespace NTDLS.Katzebase.Engine.Query.Constraints
                 {
                     if (condition.Left?.IsConstant == false)
                     {
-                        AllFields.Add(new PrefixedField(condition.Left.Prefix, condition.Left?.Value ?? ""));
+                        AllFields.Add(new PrefixedField(condition.Left.Prefix, condition.Left?.Value?.s ?? ""));
                     }
                     if (condition.Right?.IsConstant == false)
                     {
-                        AllFields.Add(new PrefixedField(condition.Right.Prefix, condition.Right?.Value ?? ""));
+                        AllFields.Add(new PrefixedField(condition.Right.Prefix, condition.Right?.Value?.s ?? ""));
                     }
                     result.Append($"{condition.ConditionKey}: {condition.Left} {condition.LogicalQualifier}");
                 }

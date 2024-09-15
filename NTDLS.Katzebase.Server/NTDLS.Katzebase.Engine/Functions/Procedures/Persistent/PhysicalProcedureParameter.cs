@@ -1,10 +1,12 @@
-﻿namespace NTDLS.Katzebase.Engine.Functions.Procedures.Persistent
+﻿using fs;
+
+namespace NTDLS.Katzebase.Engine.Functions.Procedures.Persistent
 {
     public class PhysicalProcedureParameter
     {
         public KbProcedureParameterType Type { get; set; }
         public string Name { get; set; } = string.Empty;
-        public string? DefaultValue { get; set; }
+        public fstring? DefaultValue { get; set; }
         public bool HasDefault { get; set; } = false;
 
 

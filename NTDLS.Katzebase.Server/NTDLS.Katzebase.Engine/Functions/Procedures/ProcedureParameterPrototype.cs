@@ -1,4 +1,6 @@
-﻿namespace NTDLS.Katzebase.Engine.Functions.Procedures
+﻿using fs;
+
+namespace NTDLS.Katzebase.Engine.Functions.Procedures
 {
     /// <summary>
     /// A parsed procedure parameter prototype
@@ -7,7 +9,7 @@
     {
         public KbProcedureParameterType Type { get; private set; }
         public string Name { get; private set; }
-        public string? DefaultValue { get; private set; }
+        public fstring? DefaultValue { get; private set; }
         public bool HasDefault { get; private set; }
 
         public ProcedureParameterPrototype(KbProcedureParameterType type, string name)
@@ -17,7 +19,7 @@
             HasDefault = false;
         }
 
-        public ProcedureParameterPrototype(KbProcedureParameterType type, string name, string? defaultValue)
+        public ProcedureParameterPrototype(KbProcedureParameterType type, string name, fstring? defaultValue)
         {
             Type = type;
             Name = name;

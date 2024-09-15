@@ -1,4 +1,5 @@
-﻿using NTDLS.Katzebase.Client.Types;
+﻿using fs;
+using NTDLS.Katzebase.Client.Types;
 using NTDLS.Katzebase.Engine.Atomicity;
 using NTDLS.Katzebase.Engine.Documents;
 using NTDLS.Katzebase.Engine.Indexes.Matching;
@@ -19,10 +20,10 @@ namespace NTDLS.Katzebase.Engine.Threading.PoolingParameters
         public string WorkingSchemaPrefix { get; set; }
         public Condition Condition { get; set; }
 
-        public KbInsensitiveDictionary<string>? KeyValues { get; set; }
+        public KbInsensitiveDictionary<fstring>? KeyValues { get; set; }
 
         public MatchSchemaDocumentsByConditionsOperation(Transaction transaction, IndexingConditionLookup lookup,
-            PhysicalSchema physicalSchema, string workingSchemaPrefix, Condition condition, KbInsensitiveDictionary<string>? keyValues = null)
+            PhysicalSchema physicalSchema, string workingSchemaPrefix, Condition condition, KbInsensitiveDictionary<fstring>? keyValues = null)
         {
             Transaction = transaction;
             Lookup = lookup;

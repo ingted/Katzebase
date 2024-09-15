@@ -1,4 +1,5 @@
-﻿using NTDLS.Katzebase.Client.Exceptions;
+﻿using fs;
+using NTDLS.Katzebase.Client.Exceptions;
 using NTDLS.Katzebase.Engine.Atomicity;
 using NTDLS.Katzebase.Shared;
 using System.Runtime.CompilerServices;
@@ -28,7 +29,7 @@ namespace NTDLS.Katzebase.Engine.Query.Constraints
         public LogicalQualifier LogicalQualifier { get; private set; } = LogicalQualifier.None;
 
         public Condition(string conditionKey, LogicalConnector logicalConnector,
-            string left, LogicalQualifier logicalQualifier, string right)
+            fstring left, LogicalQualifier logicalQualifier, fstring right)
         {
             ConditionKey = conditionKey;
             Left.Value = left;
@@ -77,7 +78,7 @@ namespace NTDLS.Katzebase.Engine.Query.Constraints
             return clone;
         }
 
-        public bool IsMatch(Transaction transaction, string? passedValue)
+        public bool IsMatch(Transaction transaction, fstring? passedValue)
         {
             return IsMatch(transaction, passedValue, LogicalQualifier, Right.Value);
         }
@@ -240,13 +241,13 @@ namespace NTDLS.Katzebase.Engine.Query.Constraints
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool? IsMatchEqual(Transaction transaction, string? left, string? right)
+        public static bool? IsMatchEqual(Transaction transaction, fstring? left, fstring? right)
         {
             return left == right;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool IsMatch(Transaction transaction, string? leftString, LogicalQualifier logicalQualifier, string? rightString)
+        public static bool IsMatch(Transaction transaction, fstring? leftString, LogicalQualifier logicalQualifier, fstring? rightString)
         {
             if (logicalQualifier == LogicalQualifier.Equals)
             {
@@ -258,35 +259,35 @@ namespace NTDLS.Katzebase.Engine.Query.Constraints
             }
             else if (logicalQualifier == LogicalQualifier.GreaterThan)
             {
-                return IsMatchGreater(transaction, leftString, rightString) == true;
+                return IsMatchGreater(transaction, leftString.db, rightString.db) == true;
             }
             else if (logicalQualifier == LogicalQualifier.LessThan)
             {
-                return IsMatchLesser(transaction, leftString, rightString) == true;
+                return IsMatchLesser(transaction, leftString.db, rightString.db) == true;
             }
             else if (logicalQualifier == LogicalQualifier.GreaterThanOrEqual)
             {
-                return IsMatchGreaterOrEqual(transaction, leftString, rightString) == true;
+                return IsMatchGreaterOrEqual(transaction, leftString.db, rightString.db) == true;
             }
             else if (logicalQualifier == LogicalQualifier.LessThanOrEqual)
             {
-                return IsMatchLesserOrEqual(transaction, leftString, rightString) == true;
+                return IsMatchLesserOrEqual(transaction, leftString.db, rightString.db) == true;
             }
             else if (logicalQualifier == LogicalQualifier.Like)
             {
-                return IsMatchLike(transaction, leftString, rightString) == true;
+                return IsMatchLike(transaction, leftString.s, rightString.s) == true;
             }
             else if (logicalQualifier == LogicalQualifier.NotLike)
             {
-                return IsMatchLike(transaction, leftString, rightString) == false;
+                return IsMatchLike(transaction, leftString.s, rightString.s) == false;
             }
             else if (logicalQualifier == LogicalQualifier.Between)
             {
-                return IsMatchBetween(transaction, leftString, rightString) == true;
+                return IsMatchBetween(transaction, leftString.s, rightString.s) == true;
             }
             else if (logicalQualifier == LogicalQualifier.NotBetween)
             {
-                return IsMatchBetween(transaction, leftString, rightString) == false;
+                return IsMatchBetween(transaction, leftString.s, rightString.s) == false;
             }
             else
             {

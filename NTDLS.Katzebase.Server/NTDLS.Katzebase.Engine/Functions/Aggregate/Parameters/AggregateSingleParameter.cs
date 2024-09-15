@@ -1,7 +1,8 @@
 ﻿namespace NTDLS.Katzebase.Engine.Functions.Aggregate.Parameters
 {
+    using fs;
     internal class AggregateSingleParameter : AggregateGenericParameter
     {
-        public string Value { get; set; } = string.Empty;
+        public fstring Value { get; set; } = fstring.Empty;
     }
 }

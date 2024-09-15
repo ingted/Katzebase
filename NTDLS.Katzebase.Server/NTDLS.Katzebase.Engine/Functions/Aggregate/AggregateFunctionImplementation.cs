@@ -1,4 +1,5 @@
-﻿using NTDLS.Katzebase.Client.Exceptions;
+﻿using fs;
+using NTDLS.Katzebase.Client.Exceptions;
 using NTDLS.Katzebase.Engine.Functions.Aggregate.Parameters;
 using NTDLS.Katzebase.Engine.Functions.Parameters;
 using NTDLS.Katzebase.Engine.Query.Searchers.Intersection;
@@ -18,7 +19,7 @@ namespace NTDLS.Katzebase.Engine.Functions.Aggregate
                 "avg:NumericArray/fieldName"
             };
 
-        internal static string? CollapseAllFunctionParameters(FunctionParameterBase param, IGrouping<string, SchemaIntersectionRow> group)
+        internal static fstring? CollapseAllFunctionParameters(FunctionParameterBase param, IGrouping<string, SchemaIntersectionRow> group)
         {
             if (param is FunctionWithParams functionWithParams)
             {
@@ -28,7 +29,7 @@ namespace NTDLS.Katzebase.Engine.Functions.Aggregate
                 {
                     var specificParam = (FunctionDocumentFieldParameter)subParam;
                     var values = group.SelectMany(o => o.AuxiliaryFields.Where(m => m.Key == specificParam.Value.Key)).Select(s => s.Value);
-                    subParams.Add(new AggregateDecimalArrayParameter() { Values = values.Select(o => decimal.Parse(o ?? "0")).ToList() });
+                    subParams.Add(new AggregateDecimalArrayParameter() { Values = values.Select(o => decimal.Parse(o?.s ?? "0")).ToList() });
                 }
 
                 return ExecuteFunction(functionWithParams.Function, subParams, group);
@@ -53,7 +54,7 @@ namespace NTDLS.Katzebase.Engine.Functions.Aggregate
 
         }
 
-        private static string? ExecuteFunction(string functionName, List<AggregateGenericParameter> parameters, IGrouping<string, SchemaIntersectionRow> group)
+        private static fstring? ExecuteFunction(string functionName, List<AggregateGenericParameter> parameters, IGrouping<string, SchemaIntersectionRow> group)
         {
             var proc = AggregateFunctionCollection.ApplyFunctionPrototype(functionName, parameters);
 
@@ -62,27 +63,27 @@ namespace NTDLS.Katzebase.Engine.Functions.Aggregate
                 case "sum":
                     {
                         var arrayOfValues = proc.Get<AggregateDecimalArrayParameter>("fieldName");
-                        return arrayOfValues.Values.Sum(o => o).ToString();
+                        return arrayOfValues.Values.Sum(o => o).toF();
                     }
                 case "min":
                     {
                         var arrayOfValues = proc.Get<AggregateDecimalArrayParameter>("fieldName");
-                        return arrayOfValues.Values.Min(o => o).ToString();
+                        return arrayOfValues.Values.Min(o => o).toF();
                     }
                 case "max":
                     {
                         var arrayOfValues = proc.Get<AggregateDecimalArrayParameter>("fieldName");
-                        return arrayOfValues.Values.Max(o => o).ToString();
+                        return arrayOfValues.Values.Max(o => o).toF();
                     }
                 case "avg":
                     {
                         var arrayOfValues = proc.Get<AggregateDecimalArrayParameter>("fieldName");
-                        return arrayOfValues.Values.Average(o => o).ToString();
+                        return arrayOfValues.Values.Average(o => o).toF();
                     }
                 case "count":
                     {
                         var arrayOfValues = proc.Get<AggregateDecimalArrayParameter>("fieldName");
-                        return arrayOfValues.Values.Count.ToString();
+                        return arrayOfValues.Values.Count.toF();
                     }
             }
 

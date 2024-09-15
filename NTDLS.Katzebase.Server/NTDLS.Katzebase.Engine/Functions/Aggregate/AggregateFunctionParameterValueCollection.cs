@@ -2,7 +2,7 @@
 using NTDLS.Katzebase.Client.Exceptions;
 using NTDLS.Katzebase.Engine.Functions.Aggregate.Parameters;
 using NTDLS.Katzebase.Shared;
-
+using fs;
 namespace NTDLS.Katzebase.Engine.Functions.Aggregate
 {
     public class AggregateFunctionParameterValueCollection
@@ -16,7 +16,7 @@ namespace NTDLS.Katzebase.Engine.Functions.Aggregate
                 var parameter = Values.FirstOrDefault(o => o.Parameter.Name.Is(name))
                     ?? throw new KbGenericException($"Value for {name} cannot be null.");
 
-                var paramValue = string.Empty;
+                var paramValue = fstring.Empty;
 
                 if (parameter.Value is AggregateDecimalArrayParameter)
                 {

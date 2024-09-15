@@ -1,4 +1,5 @@
-﻿using NTDLS.Katzebase.Client.Types;
+﻿using fs;
+using NTDLS.Katzebase.Client.Types;
 using NTDLS.Katzebase.Engine.Query;
 using NTDLS.Katzebase.Engine.Query.Tokenizers;
 
@@ -23,11 +24,11 @@ namespace NTDLS.Katzebase.Engine.Functions.Parameters
             {
                 if (param.Value is FunctionConstantParameter functionConstantParameter)
                 {
-                    functionConstantParameter.RawValue = tokenizer.GetLiteralValue(functionConstantParameter.FinalValue);
+                    functionConstantParameter.RawValue = tokenizer.GetLiteralValue(functionConstantParameter.FinalValue.s).toF();
                 }
                 else if (param.Value is FunctionExpression functionExpression)
                 {
-                    functionExpression.Value = tokenizer.GetLiteralValue(functionExpression.Value);
+                    functionExpression.Value = tokenizer.GetLiteralValue(functionExpression.Value.s).toF();
                     RepopulateLiterals(functionExpression.Parameters, tokenizer);
                 }
                 else if (param.Value is FunctionDocumentFieldParameter functionDocumentFieldParameter)
@@ -50,11 +51,11 @@ namespace NTDLS.Katzebase.Engine.Functions.Parameters
             {
                 if (param is FunctionConstantParameter functionConstantParameter)
                 {
-                    functionConstantParameter.RawValue = tokenizer.GetLiteralValue(functionConstantParameter.FinalValue);
+                    functionConstantParameter.RawValue = tokenizer.GetLiteralValue(functionConstantParameter.FinalValue.s).toF();
                 }
                 else if (param is FunctionExpression functionExpression)
                 {
-                    functionExpression.Value = tokenizer.GetLiteralValue(functionExpression.Value);
+                    functionExpression.Value = tokenizer.GetLiteralValue(functionExpression.Value.s).toF();
                     RepopulateLiterals(functionExpression.Parameters, tokenizer);
                 }
                 else if (param is FunctionDocumentFieldParameter functionDocumentFieldParameter)

@@ -1,4 +1,5 @@
-﻿using NTDLS.Helpers;
+﻿using fs;
+using NTDLS.Helpers;
 using NTDLS.Katzebase.Client;
 using NTDLS.Katzebase.Client.Exceptions;
 using NTDLS.Katzebase.Client.Payloads;
@@ -25,8 +26,8 @@ namespace NTDLS.Katzebase.Engine.Functions.Procedures
 
             if (procedureCall is FunctionConstantParameter functionConstantParameter)
             {
-                procedureName = functionConstantParameter.RawValue;
-                proc = ProcedureCollection.ApplyProcedurePrototype(core, transaction, functionConstantParameter.RawValue, new());
+                procedureName = functionConstantParameter.RawValue.s;
+                proc = ProcedureCollection.ApplyProcedurePrototype(core, transaction, functionConstantParameter.RawValue.s, new());
             }
             else if (procedureCall is FunctionWithParams functionWithParams)
             {
@@ -81,18 +82,18 @@ namespace NTDLS.Katzebase.Engine.Functions.Procedures
 
                             var process = Process.GetCurrentProcess();
 
-                            var values = new List<string?> {
-                                    $"{Formatters.FileSize(process.WorkingSet64)}",
-                                    $"{Formatters.FileSize(process.MinWorkingSet)}",
-                                    $"{Formatters.FileSize(process.MaxWorkingSet)}",
-                                    $"{Formatters.FileSize(process.PeakWorkingSet64)}",
-                                    $"{Formatters.FileSize(process.PagedMemorySize64)}",
-                                    $"{Formatters.FileSize(process.NonpagedSystemMemorySize64)}",
-                                    $"{Formatters.FileSize(process.PeakPagedMemorySize64)}",
-                                    $"{Formatters.FileSize(process.PeakVirtualMemorySize64)}",
-                                    $"{Formatters.FileSize(process.VirtualMemorySize64)}",
-                                    $"{Formatters.FileSize(process.PrivateMemorySize64)}",
-                                    $"{Formatters.FileSize(totalCacheSize)}",
+                            var values = new List<fstring?> {
+                                    $"{Formatters.FileSize(process.WorkingSet64)}".toF(),
+                                    $"{Formatters.FileSize(process.MinWorkingSet)}".toF(),
+                                    $"{Formatters.FileSize(process.MaxWorkingSet)}".toF(),
+                                    $"{Formatters.FileSize(process.PeakWorkingSet64)}".toF(),
+                                    $"{Formatters.FileSize(process.PagedMemorySize64)}".toF(),
+                                    $"{Formatters.FileSize(process.NonpagedSystemMemorySize64)}".toF(),
+                                    $"{Formatters.FileSize(process.PeakPagedMemorySize64)}".toF(),
+                                    $"{Formatters.FileSize(process.PeakVirtualMemorySize64)}".toF(),
+                                    $"{Formatters.FileSize(process.VirtualMemorySize64)}".toF(),
+                                    $"{Formatters.FileSize(process.PrivateMemorySize64)}".toF(),
+                                    $"{Formatters.FileSize(totalCacheSize)}".toF(),
                             };
 
                             result.AddRow(values);
@@ -117,15 +118,15 @@ namespace NTDLS.Katzebase.Engine.Functions.Procedures
 
                             foreach (var item in cachePartitions.Items)
                             {
-                                var values = new List<string?> {
-                                    $"{item.Partition:n0}",
-                                    $"{Formatters.FileSize(item.ApproximateSizeInBytes)}",
-                                    $"{item.Created}",
-                                    $"{item.Reads:n0}",
-                                    $"{item.LastRead}",
-                                    $"{item.Writes:n0}",
-                                    $"{item.LastWrite}",
-                                    $"{item.Key}",
+                                var values = new List<fstring?> {
+                                    $"{item.Partition:n0}".toF(),
+                                    $"{Formatters.FileSize(item.ApproximateSizeInBytes)}".toF(),
+                                    $"{item.Created}".toF(),
+                                    $"{item.Reads:n0}".toF(),
+                                    $"{item.LastRead}".toF(),
+                                    $"{item.Writes:n0}".toF(),
+                                    $"{item.LastWrite}".toF(),
+                                    $"{item.Key}".toF(),
                                 };
 
                                 result.AddRow(values);
@@ -156,16 +157,16 @@ namespace NTDLS.Katzebase.Engine.Functions.Procedures
                                 {
                                     if (pageObject is PhysicalDocumentPage page)
                                     {
-                                        var values = new List<string?> {
-                                            $"{item.Partition:n0}",
-                                            $"{Formatters.FileSize(item.ApproximateSizeInBytes)}",
-                                            $"{item.Created}",
-                                            $"{item.Reads:n0}",
-                                            $"{item.LastRead}",
-                                            $"{item.Writes:n0}",
-                                            $"{item.LastWrite}",
-                                            $"{page.Documents.Count:n0}",
-                                            $"{item.Key}"
+                                        var values = new List<fstring?> {
+                                            $"{item.Partition:n0}".toF(),
+                                            $"{Formatters.FileSize(item.ApproximateSizeInBytes)}".toF(),
+                                            $"{item.Created}".toF(),
+                                            $"{item.Reads:n0}".toF(),
+                                            $"{item.LastRead}".toF(),
+                                            $"{item.Writes:n0}".toF(),
+                                            $"{item.LastWrite}".toF(),
+                                            $"{page.Documents.Count:n0}".toF(),
+                                            $"{item.Key}".toF()
                                         };
                                         result.AddRow(values);
                                     }
@@ -189,11 +190,11 @@ namespace NTDLS.Katzebase.Engine.Functions.Procedures
 
                             foreach (var partition in cachePartitions.Partitions)
                             {
-                                var values = new List<string?> {
-                                    $"{partition.Partition:n0}",
-                                    $"{partition.Count:n0}",
-                                    $"{Formatters.FileSize(partition.SizeInBytes)}",
-                                    $"{Formatters.FileSize(partition.Configuration.MaxMemoryBytes):n2}"
+                                var values = new List<fstring?> {
+                                    $"{partition.Partition:n0}".toF(),
+                                    $"{partition.Count:n0}".toF(),
+                                    $"{Formatters.FileSize(partition.SizeInBytes)}".toF(),
+                                    $"{Formatters.FileSize(partition.Configuration.MaxMemoryBytes):n2}".toF()
                                 };
 
                                 result.AddRow(values);
@@ -214,10 +215,10 @@ namespace NTDLS.Katzebase.Engine.Functions.Procedures
 
                             foreach (var counter in counters)
                             {
-                                var values = new List<string?>
+                                var values = new List<fstring?>
                                 {
-                                    Text.SeperateCamelCase(counter.Key),
-                                    counter.Value.Value.ToString("n0")
+                                    Text.SeperateCamelCase(counter.Key).toF(),
+                                    counter.Value.Value.ToString("n0").toF()
                                 };
 
                                 result.AddRow(values);
@@ -330,11 +331,11 @@ namespace NTDLS.Katzebase.Engine.Functions.Procedures
                                 foreach (var heldLockKey in tx.HeldLockKeys)
                                 {
 
-                                    var values = new List<string?> {
-                                        heldLockKey.ProcessId.ToString(),
-                                        heldLockKey.ObjectLock.Granularity.ToString(),
-                                        heldLockKey.Operation.ToString(),
-                                        heldLockKey.ObjectName.ToString(),
+                                    var values = new List<fstring?> {
+                                        heldLockKey.ProcessId.ToString().toF(),
+                                        heldLockKey.ObjectLock.Granularity.ToString().toF(),
+                                        heldLockKey.Operation.ToString().toF(),
+                                        heldLockKey.ObjectName.ToString().toF(),
                                     };
                                     result.AddRow(values);
                                 }
@@ -363,11 +364,11 @@ namespace NTDLS.Katzebase.Engine.Functions.Procedures
 
                             foreach (var waitingForLock in waitingTxSnapshots)
                             {
-                                var values = new List<string?> {
-                                    waitingForLock.Key.ProcessId.ToString(),
-                                    waitingForLock.Value.Granularity.ToString(),
-                                    waitingForLock.Value.Operation.ToString(),
-                                    waitingForLock.Value.ObjectName.ToString(),
+                                var values = new List<fstring?> {
+                                    waitingForLock.Key.ProcessId.ToString().toF(),
+                                    waitingForLock.Value.Granularity.ToString().toF(),
+                                    waitingForLock.Value.Operation.ToString().toF(),
+                                    waitingForLock.Value.ObjectName.ToString().toF(),
                                 };
                                 result.AddRow(values);
                             }
@@ -407,7 +408,7 @@ namespace NTDLS.Katzebase.Engine.Functions.Procedures
                             {
                                 foreach (var block in txSnapshot.BlockedByKeys)
                                 {
-                                    var values = new List<string?> { txSnapshot.ProcessId.ToString(), block.ToString() };
+                                    var values = new List<fstring?> { txSnapshot.ProcessId.ToString().toF(), block.ToString().toF() };
                                     result.AddRow(values);
                                 }
                             }
@@ -444,20 +445,20 @@ namespace NTDLS.Katzebase.Engine.Functions.Procedures
 
                             foreach (var txSnapshot in txSnapshots)
                             {
-                                var values = new List<string?> {
-                                    $"{txSnapshot.ProcessId:n0}",
-                                    $"{(txSnapshot?.BlockedByKeys.Count > 0):n0}",
-                                    string.Join(", ", txSnapshot?.BlockedByKeys.Select(o=>o.ProcessId) ?? new List<ulong>()),
-                                    $"{txSnapshot?.ReferenceCount:n0}",
-                                    $"{txSnapshot?.StartTime}",
-                                    $"{txSnapshot?.HeldLockKeys.Count:n0}",
-                                    $"{txSnapshot?.GrantedLockCache?.Count:n0}",
-                                    $"{txSnapshot?.FilesReadForCache?.Count:n0}",
-                                    $"{txSnapshot?.DeferredIOs?.Count():n0}",
-                                    $"{!(txSnapshot?.IsCommittedOrRolledBack == true)}",
-                                    $"{txSnapshot?.IsDeadlocked}",
-                                    $"{txSnapshot?.IsCancelled}",
-                                    $"{txSnapshot?.IsUserCreated}"
+                                var values = new List<fstring?> {
+                                    $"{txSnapshot.ProcessId:n0}".toF(),
+                                    $"{(txSnapshot?.BlockedByKeys.Count > 0):n0}".toF(),
+                                    string.Join(", ", txSnapshot?.BlockedByKeys.Select(o=>o.ProcessId) ?? new List<ulong>()).toF(),
+                                    $"{txSnapshot?.ReferenceCount:n0}".toF(),
+                                    $"{txSnapshot?.StartTime}".toF(),
+                                    $"{txSnapshot?.HeldLockKeys.Count:n0}".toF(),
+                                    $"{txSnapshot?.GrantedLockCache?.Count:n0}".toF(),
+                                    $"{txSnapshot?.FilesReadForCache?.Count:n0}".toF(),
+                                    $"{txSnapshot?.DeferredIOs?.Count():n0}".toF(),
+                                    $"{!(txSnapshot?.IsCommittedOrRolledBack == true)}".toF(),
+                                    $"{txSnapshot?.IsDeadlocked}".toF(),
+                                    $"{txSnapshot?.IsCancelled}".toF(),
+                                    $"{txSnapshot?.IsUserCreated}".toF()
                                 };
                                 result.AddRow(values);
                             }
@@ -502,24 +503,24 @@ namespace NTDLS.Katzebase.Engine.Functions.Procedures
                             {
                                 var txSnapshot = txSnapshots.FirstOrDefault(o => o.ProcessId == s.Value.ProcessId);
 
-                                var values = new List<string?> {
-                                    $"{s.Key}",
-                                    $"{s.Value.ProcessId:n0}",
-                                    $"{s.Value.ClientName ?? string.Empty}",
-                                    $"{s.Value.LoginTime}",
-                                    $"{s.Value.LastCheckInTime}",
-                                    $"{(txSnapshot?.BlockedByKeys.Count > 0):n0}",
-                                    string.Join(", ", txSnapshot?.BlockedByKeys.Select(o=>o.ProcessId) ?? new List<ulong>()),
-                                    $"{txSnapshot?.ReferenceCount:n0}",
-                                    $"{txSnapshot?.StartTime}",
-                                    $"{txSnapshot?.HeldLockKeys.Count:n0}",
-                                    $"{txSnapshot?.GrantedLockCache?.Count:n0}",
-                                    $"{txSnapshot?.FilesReadForCache?.Count:n0}",
-                                    $"{txSnapshot?.DeferredIOs?.Count():n0}",
-                                    $"{!(txSnapshot?.IsCommittedOrRolledBack == true)}",
-                                    $"{txSnapshot?.IsDeadlocked}",
-                                    $"{txSnapshot?.IsCancelled}",
-                                    $"{txSnapshot?.IsUserCreated}"
+                                var values = new List<fstring?> {
+                                    $"{s.Key}".toF(),
+                                    $"{s.Value.ProcessId:n0}".toF(),
+                                    $"{s.Value.ClientName ?? string.Empty}".toF(),
+                                    $"{s.Value.LoginTime}".toF(),
+                                    $"{s.Value.LastCheckInTime}".toF(),
+                                    $"{(txSnapshot?.BlockedByKeys.Count > 0):n0}".toF(),
+                                    string.Join(", ", txSnapshot?.BlockedByKeys.Select(o=>o.ProcessId) ?? new List<ulong>()).toF(),
+                                    $"{txSnapshot?.ReferenceCount:n0}".toF(),
+                                    $"{txSnapshot?.StartTime}".toF(),
+                                    $"{txSnapshot?.HeldLockKeys.Count:n0}".toF(),
+                                    $"{txSnapshot?.GrantedLockCache?.Count:n0}".toF(),
+                                    $"{txSnapshot?.FilesReadForCache?.Count:n0}".toF(),
+                                    $"{txSnapshot?.DeferredIOs?.Count():n0}".toF(),
+                                    $"{!(txSnapshot?.IsCommittedOrRolledBack == true)}".toF(),
+                                    $"{txSnapshot?.IsDeadlocked}".toF(),
+                                    $"{txSnapshot?.IsCancelled}".toF(),
+                                    $"{txSnapshot?.IsUserCreated}".toF()
                                 };
                                 result.AddRow(values);
                             }
@@ -565,10 +566,10 @@ namespace NTDLS.Katzebase.Engine.Functions.Procedures
                                     parameters.Length -= 2;
                                 }
 
-                                var values = new List<string?> {
-                                    prototype.Name,
-                                    prototype.ReturnType.ToString(),
-                                    parameters.ToString()
+                                var values = new List<fstring?> {
+                                    prototype.Name.toF(),
+                                    prototype.ReturnType.ToString().toF(),
+                                    parameters.ToString().toF()
                                 };
                                 result.AddRow(values);
 
@@ -630,9 +631,9 @@ namespace NTDLS.Katzebase.Engine.Functions.Procedures
                                     parameters.Length -= 2;
                                 }
 
-                                var values = new List<string?> {
-                                    prototype.Name,
-                                    parameters.ToString()
+                                var values = new List<fstring?> {
+                                    prototype.Name.toF(),
+                                    parameters.ToString().toF()
                                 };
                                 result.AddRow(values);
 
@@ -694,9 +695,9 @@ namespace NTDLS.Katzebase.Engine.Functions.Procedures
                                     parameters.Length -= 2;
                                 }
 
-                                var values = new List<string?> {
-                                    prototype.Name,
-                                    parameters.ToString()
+                                var values = new List<fstring?> {
+                                    prototype.Name.toF(),
+                                    parameters.ToString().toF()
                                 };
                                 result.AddRow(values);
 
@@ -764,9 +765,9 @@ namespace NTDLS.Katzebase.Engine.Functions.Procedures
                                         }
                                     }
 
-                                    var values = new List<string?> {
-                                            $"{assemblyName.Name}",
-                                            $"{assemblyName.Version}"
+                                    var values = new List<fstring?> {
+                                            $"{assemblyName.Name}".toF(),
+                                            $"{assemblyName.Version}".toF()
                                         };
                                     result.AddRow(values);
                                 }
@@ -796,7 +797,7 @@ namespace NTDLS.Katzebase.Engine.Functions.Procedures
 
                         foreach (var param in proc.Parameters.Values)
                         {
-                            batchText = batchText.Replace(param.Parameter.Name, param.Value, StringComparison.OrdinalIgnoreCase);
+                            batchText = batchText.Replace(param.Parameter.Name, param.Value?.s, StringComparison.OrdinalIgnoreCase);
                         }
 
                         var batchStartTime = DateTime.UtcNow;

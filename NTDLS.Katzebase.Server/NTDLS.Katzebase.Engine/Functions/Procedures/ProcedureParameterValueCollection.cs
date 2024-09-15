@@ -1,4 +1,5 @@
-﻿using NTDLS.Helpers;
+﻿using fs;
+using NTDLS.Helpers;
 using NTDLS.Katzebase.Client.Exceptions;
 using NTDLS.Katzebase.Shared;
 
@@ -27,7 +28,7 @@ namespace NTDLS.Katzebase.Engine.Functions.Procedures
 
                 if (typeof(T) == typeof(string) || (Nullable.GetUnderlyingType(typeof(T)) == typeof(string)))
                 {
-                    return Converters.ConvertTo<T>(parameter.Value.Substring(1, parameter.Value.Length - 2));
+                    return Converters.ConvertTo<T>(parameter.Value.s.Substring(1, parameter.Value.s.Length - 2).toF());
                 }
 
                 return Converters.ConvertTo<T>(parameter.Value);
@@ -50,7 +51,7 @@ namespace NTDLS.Katzebase.Engine.Functions.Procedures
 
                 if (typeof(T) == typeof(string) || (Nullable.GetUnderlyingType(typeof(T)) == typeof(string)))
                 {
-                    return Converters.ConvertTo<T>(value.Substring(1, value.Length - 2));
+                    return Converters.ConvertTo<T>(value.s.Substring(1, value.s.Length - 2).toF());
                 }
 
                 return Converters.ConvertTo<T>(value);
@@ -77,7 +78,7 @@ namespace NTDLS.Katzebase.Engine.Functions.Procedures
 
             if (typeof(T) == typeof(string) || (Nullable.GetUnderlyingType(typeof(T)) == typeof(string)))
             {
-                return Converters.ConvertToNullable<T>(parameter.Value.Substring(1, parameter.Value.Length - 2));
+                return Converters.ConvertToNullable<T>(parameter.Value.s.Substring(1, parameter.Value.s.Length - 2).toF());
             }
 
             return Converters.ConvertToNullable<T>(parameter.Value);
@@ -93,7 +94,7 @@ namespace NTDLS.Katzebase.Engine.Functions.Procedures
 
             if (typeof(T) == typeof(string) || (Nullable.GetUnderlyingType(typeof(T)) == typeof(string)))
             {
-                return Converters.ConvertToNullable<T>(value.Substring(1, value.Length - 2));
+                return Converters.ConvertToNullable<T>(value.s.Substring(1, value.s.Length - 2).toF());
             }
 
             return Converters.ConvertToNullable<T>(value);

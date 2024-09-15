@@ -1,914 +1,90 @@
 {
   "format": 1,
   "restore": {
-    "G:\\git\\NTDLS.Katzebase.Server\\TestUseWithApi\\TestUseWithApi.csproj": {}
+    "G:\\coldfar_py\\sharftrade9\\Libs2\\Katzebase\\NTDLS.Katzebase.Server\\TestUseWithApi\\TestUseWithApi.csproj": {}
   },
   "projects": {
-    "G:\\git\\NTDLS.DelegateThreadPooling\\NTDLS.DelegateThreadPooling\\NTDLS.DelegateThreadPooling.csproj": {
-      "version": "1.4.8",
-      "restore": {
-        "projectUniqueName": "G:\\git\\NTDLS.DelegateThreadPooling\\NTDLS.DelegateThreadPooling\\NTDLS.DelegateThreadPooling.csproj",
-        "projectName": "NTDLS.DelegateThreadPooling",
-        "projectPath": "G:\\git\\NTDLS.DelegateThreadPooling\\NTDLS.DelegateThreadPooling\\NTDLS.DelegateThreadPooling.csproj",
-        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "G:\\git\\NTDLS.DelegateThreadPooling\\NTDLS.DelegateThreadPooling\\obj\\",
-        "projectStyle": "PackageReference",
-        "crossTargeting": true,
-        "configFilePaths": [
-          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "net6.0",
-          "net7.0",
-          "net8.0"
-        ],
-        "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "net6.0": {
-            "targetAlias": "net6.0",
-            "projectReferences": {
-              "G:\\git\\NTDLS.Semaphore\\NTDLS.Semaphore\\NTDLS.Semaphore.csproj": {
-                "projectPath": "G:\\git\\NTDLS.Semaphore\\NTDLS.Semaphore\\NTDLS.Semaphore.csproj"
-              }
-            }
-          },
-          "net7.0": {
-            "targetAlias": "net7.0",
-            "projectReferences": {
-              "G:\\git\\NTDLS.Semaphore\\NTDLS.Semaphore\\NTDLS.Semaphore.csproj": {
-                "projectPath": "G:\\git\\NTDLS.Semaphore\\NTDLS.Semaphore\\NTDLS.Semaphore.csproj"
-              }
-            }
-          },
-          "net8.0": {
-            "targetAlias": "net8.0",
-            "projectReferences": {
-              "G:\\git\\NTDLS.Semaphore\\NTDLS.Semaphore\\NTDLS.Semaphore.csproj": {
-                "projectPath": "G:\\git\\NTDLS.Semaphore\\NTDLS.Semaphore\\NTDLS.Semaphore.csproj"
-              }
-            }
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
-        }
-      },
-      "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[6.0.32, 6.0.32]"
-            },
-            {
-              "name": "Microsoft.Net.Sdk.Compilers.Toolset",
-              "version": "[9.0.100-preview.7.24407.12, 9.0.100-preview.7.24407.12]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[6.0.32, 6.0.32]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[6.0.32, 6.0.32]"
-            }
-          ],
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100-preview.7.24407.12\\RuntimeIdentifierGraph.json"
-        },
-        "net7.0": {
-          "targetAlias": "net7.0",
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.Net.Sdk.Compilers.Toolset",
-              "version": "[9.0.100-preview.7.24407.12, 9.0.100-preview.7.24407.12]"
-            }
-          ],
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100-preview.7.24407.12\\RuntimeIdentifierGraph.json"
-        },
-        "net8.0": {
-          "targetAlias": "net8.0",
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[8.0.7, 8.0.7]"
-            },
-            {
-              "name": "Microsoft.Net.Sdk.Compilers.Toolset",
-              "version": "[9.0.100-preview.7.24407.12, 9.0.100-preview.7.24407.12]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[8.0.7, 8.0.7]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[8.0.7, 8.0.7]"
-            }
-          ],
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100-preview.7.24407.12/PortableRuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "G:\\git\\NTDLS.FastMemoryCache\\FastMemoryCache\\NTDLS.FastMemoryCache.csproj": {
-      "version": "1.7.5",
-      "restore": {
-        "projectUniqueName": "G:\\git\\NTDLS.FastMemoryCache\\FastMemoryCache\\NTDLS.FastMemoryCache.csproj",
-        "projectName": "NTDLS.FastMemoryCache",
-        "projectPath": "G:\\git\\NTDLS.FastMemoryCache\\FastMemoryCache\\NTDLS.FastMemoryCache.csproj",
-        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "G:\\git\\NTDLS.FastMemoryCache\\FastMemoryCache\\obj\\",
-        "projectStyle": "PackageReference",
-        "crossTargeting": true,
-        "configFilePaths": [
-          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "net6.0",
-          "net7.0",
-          "net8.0"
-        ],
-        "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "net6.0": {
-            "targetAlias": "net6.0",
-            "projectReferences": {
-              "G:\\git\\NTDLS.Semaphore\\NTDLS.Semaphore\\NTDLS.Semaphore.csproj": {
-                "projectPath": "G:\\git\\NTDLS.Semaphore\\NTDLS.Semaphore\\NTDLS.Semaphore.csproj"
-              }
-            }
-          },
-          "net7.0": {
-            "targetAlias": "net7.0",
-            "projectReferences": {
-              "G:\\git\\NTDLS.Semaphore\\NTDLS.Semaphore\\NTDLS.Semaphore.csproj": {
-                "projectPath": "G:\\git\\NTDLS.Semaphore\\NTDLS.Semaphore\\NTDLS.Semaphore.csproj"
-              }
-            }
-          },
-          "net8.0": {
-            "targetAlias": "net8.0",
-            "projectReferences": {
-              "G:\\git\\NTDLS.Semaphore\\NTDLS.Semaphore\\NTDLS.Semaphore.csproj": {
-                "projectPath": "G:\\git\\NTDLS.Semaphore\\NTDLS.Semaphore\\NTDLS.Semaphore.csproj"
-              }
-            }
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
-        }
-      },
-      "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
-          "dependencies": {
-            "System.Runtime.Caching": {
-              "target": "Package",
-              "version": "[8.0.0, )"
-            }
-          },
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[6.0.32, 6.0.32]"
-            },
-            {
-              "name": "Microsoft.Net.Sdk.Compilers.Toolset",
-              "version": "[9.0.100-preview.7.24407.12, 9.0.100-preview.7.24407.12]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[6.0.32, 6.0.32]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[6.0.32, 6.0.32]"
-            }
-          ],
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100-preview.7.24407.12\\RuntimeIdentifierGraph.json"
-        },
-        "net7.0": {
-          "targetAlias": "net7.0",
-          "dependencies": {
-            "System.Runtime.Caching": {
-              "target": "Package",
-              "version": "[8.0.0, )"
-            }
-          },
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.Net.Sdk.Compilers.Toolset",
-              "version": "[9.0.100-preview.7.24407.12, 9.0.100-preview.7.24407.12]"
-            }
-          ],
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100-preview.7.24407.12\\RuntimeIdentifierGraph.json"
-        },
-        "net8.0": {
-          "targetAlias": "net8.0",
-          "dependencies": {
-            "System.Runtime.Caching": {
-              "target": "Package",
-              "version": "[8.0.0, )"
-            }
-          },
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[8.0.7, 8.0.7]"
-            },
-            {
-              "name": "Microsoft.Net.Sdk.Compilers.Toolset",
-              "version": "[9.0.100-preview.7.24407.12, 9.0.100-preview.7.24407.12]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[8.0.7, 8.0.7]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[8.0.7, 8.0.7]"
-            }
-          ],
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100-preview.7.24407.12/PortableRuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "G:\\git\\NTDLS.Helpers\\NTDLS.Helpers\\NTDLS.Helpers.csproj": {
-      "version": "1.2.8",
-      "restore": {
-        "projectUniqueName": "G:\\git\\NTDLS.Helpers\\NTDLS.Helpers\\NTDLS.Helpers.csproj",
-        "projectName": "NTDLS.Helpers",
-        "projectPath": "G:\\git\\NTDLS.Helpers\\NTDLS.Helpers\\NTDLS.Helpers.csproj",
-        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "G:\\git\\NTDLS.Helpers\\NTDLS.Helpers\\obj\\",
-        "projectStyle": "PackageReference",
-        "crossTargeting": true,
-        "configFilePaths": [
-          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "net6.0",
-          "net7.0",
-          "net8.0"
-        ],
-        "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "net6.0": {
-            "targetAlias": "net6.0",
-            "projectReferences": {}
-          },
-          "net7.0": {
-            "targetAlias": "net7.0",
-            "projectReferences": {}
-          },
-          "net8.0": {
-            "targetAlias": "net8.0",
-            "projectReferences": {}
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
-        }
-      },
-      "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[6.0.32, 6.0.32]"
-            },
-            {
-              "name": "Microsoft.Net.Sdk.Compilers.Toolset",
-              "version": "[9.0.100-preview.7.24407.12, 9.0.100-preview.7.24407.12]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[6.0.32, 6.0.32]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[6.0.32, 6.0.32]"
-            }
-          ],
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100-preview.7.24407.12\\RuntimeIdentifierGraph.json"
-        },
-        "net7.0": {
-          "targetAlias": "net7.0",
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.Net.Sdk.Compilers.Toolset",
-              "version": "[9.0.100-preview.7.24407.12, 9.0.100-preview.7.24407.12]"
-            }
-          ],
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100-preview.7.24407.12\\RuntimeIdentifierGraph.json"
-        },
-        "net8.0": {
-          "targetAlias": "net8.0",
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[8.0.7, 8.0.7]"
-            },
-            {
-              "name": "Microsoft.Net.Sdk.Compilers.Toolset",
-              "version": "[9.0.100-preview.7.24407.12, 9.0.100-preview.7.24407.12]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[8.0.7, 8.0.7]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[8.0.7, 8.0.7]"
-            }
-          ],
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100-preview.7.24407.12/PortableRuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "G:\\git\\NTDLS.Katzebase.Client\\NTDLS.Katzebase.Client.csproj": {
-      "version": "1.7.6",
-      "restore": {
-        "projectUniqueName": "G:\\git\\NTDLS.Katzebase.Client\\NTDLS.Katzebase.Client.csproj",
-        "projectName": "NTDLS.Katzebase.Client",
-        "projectPath": "G:\\git\\NTDLS.Katzebase.Client\\NTDLS.Katzebase.Client.csproj",
-        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "G:\\git\\NTDLS.Katzebase.Client\\obj\\",
-        "projectStyle": "PackageReference",
-        "crossTargeting": true,
-        "configFilePaths": [
-          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "net6.0",
-          "net7.0",
-          "net8.0"
-        ],
-        "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "net6.0": {
-            "targetAlias": "net6.0",
-            "projectReferences": {
-              "G:\\git\\NTDLS.Helpers\\NTDLS.Helpers\\NTDLS.Helpers.csproj": {
-                "projectPath": "G:\\git\\NTDLS.Helpers\\NTDLS.Helpers\\NTDLS.Helpers.csproj"
-              },
-              "G:\\git\\NTDLS.ReliableMessaging\\NTDLS.ReliableMessaging\\NTDLS.ReliableMessaging.csproj": {
-                "projectPath": "G:\\git\\NTDLS.ReliableMessaging\\NTDLS.ReliableMessaging\\NTDLS.ReliableMessaging.csproj"
-              }
-            }
-          },
-          "net7.0": {
-            "targetAlias": "net7.0",
-            "projectReferences": {
-              "G:\\git\\NTDLS.Helpers\\NTDLS.Helpers\\NTDLS.Helpers.csproj": {
-                "projectPath": "G:\\git\\NTDLS.Helpers\\NTDLS.Helpers\\NTDLS.Helpers.csproj"
-              },
-              "G:\\git\\NTDLS.ReliableMessaging\\NTDLS.ReliableMessaging\\NTDLS.ReliableMessaging.csproj": {
-                "projectPath": "G:\\git\\NTDLS.ReliableMessaging\\NTDLS.ReliableMessaging\\NTDLS.ReliableMessaging.csproj"
-              }
-            }
-          },
-          "net8.0": {
-            "targetAlias": "net8.0",
-            "projectReferences": {
-              "G:\\git\\NTDLS.Helpers\\NTDLS.Helpers\\NTDLS.Helpers.csproj": {
-                "projectPath": "G:\\git\\NTDLS.Helpers\\NTDLS.Helpers\\NTDLS.Helpers.csproj"
-              },
-              "G:\\git\\NTDLS.ReliableMessaging\\NTDLS.ReliableMessaging\\NTDLS.ReliableMessaging.csproj": {
-                "projectPath": "G:\\git\\NTDLS.ReliableMessaging\\NTDLS.ReliableMessaging\\NTDLS.ReliableMessaging.csproj"
-              }
-            }
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
-        }
-      },
-      "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
-          "dependencies": {
-            "Microsoft.Extensions.Caching.Memory": {
-              "target": "Package",
-              "version": "[8.0.0, )"
-            },
-            "Newtonsoft.Json": {
-              "target": "Package",
-              "version": "[13.0.3, )"
-            }
-          },
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[6.0.32, 6.0.32]"
-            },
-            {
-              "name": "Microsoft.Net.Sdk.Compilers.Toolset",
-              "version": "[9.0.100-preview.7.24407.12, 9.0.100-preview.7.24407.12]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[6.0.32, 6.0.32]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[6.0.32, 6.0.32]"
-            }
-          ],
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100-preview.7.24407.12\\RuntimeIdentifierGraph.json"
-        },
-        "net7.0": {
-          "targetAlias": "net7.0",
-          "dependencies": {
-            "Microsoft.Extensions.Caching.Memory": {
-              "target": "Package",
-              "version": "[8.0.0, )"
-            },
-            "Newtonsoft.Json": {
-              "target": "Package",
-              "version": "[13.0.3, )"
-            }
-          },
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.Net.Sdk.Compilers.Toolset",
-              "version": "[9.0.100-preview.7.24407.12, 9.0.100-preview.7.24407.12]"
-            }
-          ],
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100-preview.7.24407.12\\RuntimeIdentifierGraph.json"
-        },
-        "net8.0": {
-          "targetAlias": "net8.0",
-          "dependencies": {
-            "Microsoft.Extensions.Caching.Memory": {
-              "target": "Package",
-              "version": "[8.0.0, )"
-            },
-            "Newtonsoft.Json": {
-              "target": "Package",
-              "version": "[13.0.3, )"
-            }
-          },
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[8.0.7, 8.0.7]"
-            },
-            {
-              "name": "Microsoft.Net.Sdk.Compilers.Toolset",
-              "version": "[9.0.100-preview.7.24407.12, 9.0.100-preview.7.24407.12]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[8.0.7, 8.0.7]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[8.0.7, 8.0.7]"
-            }
-          ],
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100-preview.7.24407.12/PortableRuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "G:\\git\\NTDLS.Katzebase.Server\\NTDLS.Katzebase.Engine\\NTDLS.Katzebase.Engine.csproj": {
-      "version": "0.15.0",
-      "restore": {
-        "projectUniqueName": "G:\\git\\NTDLS.Katzebase.Server\\NTDLS.Katzebase.Engine\\NTDLS.Katzebase.Engine.csproj",
-        "projectName": "NTDLS.Katzebase.Engine",
-        "projectPath": "G:\\git\\NTDLS.Katzebase.Server\\NTDLS.Katzebase.Engine\\NTDLS.Katzebase.Engine.csproj",
-        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "G:\\git\\NTDLS.Katzebase.Server\\NTDLS.Katzebase.Engine\\obj\\",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "net8.0"
-        ],
-        "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "net8.0": {
-            "targetAlias": "net8.0",
-            "projectReferences": {
-              "G:\\git\\NTDLS.DelegateThreadPooling\\NTDLS.DelegateThreadPooling\\NTDLS.DelegateThreadPooling.csproj": {
-                "projectPath": "G:\\git\\NTDLS.DelegateThreadPooling\\NTDLS.DelegateThreadPooling\\NTDLS.DelegateThreadPooling.csproj"
-              },
-              "G:\\git\\NTDLS.FastMemoryCache\\FastMemoryCache\\NTDLS.FastMemoryCache.csproj": {
-                "projectPath": "G:\\git\\NTDLS.FastMemoryCache\\FastMemoryCache\\NTDLS.FastMemoryCache.csproj"
-              },
-              "G:\\git\\NTDLS.Katzebase.Client\\NTDLS.Katzebase.Client.csproj": {
-                "projectPath": "G:\\git\\NTDLS.Katzebase.Client\\NTDLS.Katzebase.Client.csproj"
-              },
-              "G:\\git\\NTDLS.Katzebase.Server\\NTDLS.Katzebase.Shared\\NTDLS.Katzebase.Shared.csproj": {
-                "projectPath": "G:\\git\\NTDLS.Katzebase.Server\\NTDLS.Katzebase.Shared\\NTDLS.Katzebase.Shared.csproj"
-              }
-            }
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
-        }
-      },
-      "frameworks": {
-        "net8.0": {
-          "targetAlias": "net8.0",
-          "dependencies": {
-            "CoreCLR-NCalc": {
-              "target": "Package",
-              "version": "[3.1.253, )"
-            },
-            "Serilog": {
-              "target": "Package",
-              "version": "[4.0.1, )"
-            }
-          },
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[8.0.7, 8.0.7]"
-            },
-            {
-              "name": "Microsoft.Net.Sdk.Compilers.Toolset",
-              "version": "[9.0.100-preview.7.24407.12, 9.0.100-preview.7.24407.12]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[8.0.7, 8.0.7]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[8.0.7, 8.0.7]"
-            }
-          ],
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100-preview.7.24407.12/PortableRuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "G:\\git\\NTDLS.Katzebase.Server\\NTDLS.Katzebase.Shared\\NTDLS.Katzebase.Shared.csproj": {
-      "version": "0.15.0",
-      "restore": {
-        "projectUniqueName": "G:\\git\\NTDLS.Katzebase.Server\\NTDLS.Katzebase.Shared\\NTDLS.Katzebase.Shared.csproj",
-        "projectName": "NTDLS.Katzebase.Shared",
-        "projectPath": "G:\\git\\NTDLS.Katzebase.Server\\NTDLS.Katzebase.Shared\\NTDLS.Katzebase.Shared.csproj",
-        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "G:\\git\\NTDLS.Katzebase.Server\\NTDLS.Katzebase.Shared\\obj\\",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "net8.0"
-        ],
-        "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "net8.0": {
-            "targetAlias": "net8.0",
-            "projectReferences": {}
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
-        }
-      },
-      "frameworks": {
-        "net8.0": {
-          "targetAlias": "net8.0",
-          "dependencies": {
-            "Microsoft.Extensions.Caching.Memory": {
-              "target": "Package",
-              "version": "[8.0.0, )"
-            }
-          },
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[8.0.7, 8.0.7]"
-            },
-            {
-              "name": "Microsoft.Net.Sdk.Compilers.Toolset",
-              "version": "[9.0.100-preview.7.24407.12, 9.0.100-preview.7.24407.12]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[8.0.7, 8.0.7]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[8.0.7, 8.0.7]"
-            }
-          ],
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100-preview.7.24407.12/PortableRuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "G:\\git\\NTDLS.Katzebase.Server\\TestUseWithApi\\TestUseWithApi.csproj": {
+    "G:\\coldfar_py\\sharftrade9\\Libs2\\Katzebase\\fstring\\fstring.fsproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\git\\NTDLS.Katzebase.Server\\TestUseWithApi\\TestUseWithApi.csproj",
-        "projectName": "TestUseWithApi",
-        "projectPath": "G:\\git\\NTDLS.Katzebase.Server\\TestUseWithApi\\TestUseWithApi.csproj",
+        "projectUniqueName": "G:\\coldfar_py\\sharftrade9\\Libs2\\Katzebase\\fstring\\fstring.fsproj",
+        "projectName": "fstring",
+        "projectPath": "G:\\coldfar_py\\sharftrade9\\Libs2\\Katzebase\\fstring\\fstring.fsproj",
         "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "G:\\git\\NTDLS.Katzebase.Server\\TestUseWithApi\\obj\\",
+        "outputPath": "G:\\coldfar_py\\sharftrade9\\Libs2\\Katzebase\\fstring\\obj\\",
         "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "C:\\Program Files\\dotnet\\sdk\\9.0.100-preview.7.24407.12\\FSharp\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {}
+          }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "FSharp.Core": {
+              "include": "Runtime, Compile, Build, Native, Analyzers, BuildTransitive",
+              "target": "Package",
+              "version": "[9.0.100-beta.24406.3, )",
+              "generatePathProperty": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.Net.Sdk.Compilers.Toolset",
+              "version": "[9.0.100-preview.7.24407.12, 9.0.100-preview.7.24407.12]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100-preview.7.24407.12/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "G:\\coldfar_py\\sharftrade9\\Libs2\\Katzebase\\NTDLS.DelegateThreadPooling\\NTDLS.DelegateThreadPooling\\NTDLS.DelegateThreadPooling.csproj": {
+      "version": "1.4.8",
+      "restore": {
+        "projectUniqueName": "G:\\coldfar_py\\sharftrade9\\Libs2\\Katzebase\\NTDLS.DelegateThreadPooling\\NTDLS.DelegateThreadPooling\\NTDLS.DelegateThreadPooling.csproj",
+        "projectName": "NTDLS.DelegateThreadPooling",
+        "projectPath": "G:\\coldfar_py\\sharftrade9\\Libs2\\Katzebase\\NTDLS.DelegateThreadPooling\\NTDLS.DelegateThreadPooling\\NTDLS.DelegateThreadPooling.csproj",
+        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
+        "outputPath": "G:\\coldfar_py\\sharftrade9\\Libs2\\Katzebase\\NTDLS.DelegateThreadPooling\\NTDLS.DelegateThreadPooling\\obj\\",
+        "projectStyle": "PackageReference",
+        "crossTargeting": true,
         "configFilePaths": [
           "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -925,8 +101,8 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "G:\\git\\NTDLS.Katzebase.Server\\NTDLS.Katzebase.Engine\\NTDLS.Katzebase.Engine.csproj": {
-                "projectPath": "G:\\git\\NTDLS.Katzebase.Server\\NTDLS.Katzebase.Engine\\NTDLS.Katzebase.Engine.csproj"
+              "G:\\coldfar_py\\sharftrade9\\Libs2\\Katzebase\\NTDLS.Semaphore\\NTDLS.Semaphore\\NTDLS.Semaphore.csproj": {
+                "projectPath": "G:\\coldfar_py\\sharftrade9\\Libs2\\Katzebase\\NTDLS.Semaphore\\NTDLS.Semaphore\\NTDLS.Semaphore.csproj"
               }
             }
           }
@@ -971,14 +147,14 @@
         }
       }
     },
-    "G:\\git\\NTDLS.ReliableMessaging\\NTDLS.ReliableMessaging\\NTDLS.ReliableMessaging.csproj": {
-      "version": "1.10.9",
+    "G:\\coldfar_py\\sharftrade9\\Libs2\\Katzebase\\NTDLS.FastMemoryCache\\FastMemoryCache\\NTDLS.FastMemoryCache.csproj": {
+      "version": "1.7.5",
       "restore": {
-        "projectUniqueName": "G:\\git\\NTDLS.ReliableMessaging\\NTDLS.ReliableMessaging\\NTDLS.ReliableMessaging.csproj",
-        "projectName": "NTDLS.ReliableMessaging",
-        "projectPath": "G:\\git\\NTDLS.ReliableMessaging\\NTDLS.ReliableMessaging\\NTDLS.ReliableMessaging.csproj",
+        "projectUniqueName": "G:\\coldfar_py\\sharftrade9\\Libs2\\Katzebase\\NTDLS.FastMemoryCache\\FastMemoryCache\\NTDLS.FastMemoryCache.csproj",
+        "projectName": "NTDLS.FastMemoryCache",
+        "projectPath": "G:\\coldfar_py\\sharftrade9\\Libs2\\Katzebase\\NTDLS.FastMemoryCache\\FastMemoryCache\\NTDLS.FastMemoryCache.csproj",
         "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "G:\\git\\NTDLS.ReliableMessaging\\NTDLS.ReliableMessaging\\obj\\",
+        "outputPath": "G:\\coldfar_py\\sharftrade9\\Libs2\\Katzebase\\NTDLS.FastMemoryCache\\FastMemoryCache\\obj\\",
         "projectStyle": "PackageReference",
         "crossTargeting": true,
         "configFilePaths": [
@@ -986,9 +162,7 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net6.0",
-          "net7.0",
-          "net8.0"
+          "net9.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -996,36 +170,11 @@
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net6.0": {
-            "targetAlias": "net6.0",
+          "net9.0": {
+            "targetAlias": "net9.0",
             "projectReferences": {
-              "G:\\git\\NTDLS.Helpers\\NTDLS.Helpers\\NTDLS.Helpers.csproj": {
-                "projectPath": "G:\\git\\NTDLS.Helpers\\NTDLS.Helpers\\NTDLS.Helpers.csproj"
-              },
-              "G:\\git\\NTDLS.Semaphore\\NTDLS.Semaphore\\NTDLS.Semaphore.csproj": {
-                "projectPath": "G:\\git\\NTDLS.Semaphore\\NTDLS.Semaphore\\NTDLS.Semaphore.csproj"
-              }
-            }
-          },
-          "net7.0": {
-            "targetAlias": "net7.0",
-            "projectReferences": {
-              "G:\\git\\NTDLS.Helpers\\NTDLS.Helpers\\NTDLS.Helpers.csproj": {
-                "projectPath": "G:\\git\\NTDLS.Helpers\\NTDLS.Helpers\\NTDLS.Helpers.csproj"
-              },
-              "G:\\git\\NTDLS.Semaphore\\NTDLS.Semaphore\\NTDLS.Semaphore.csproj": {
-                "projectPath": "G:\\git\\NTDLS.Semaphore\\NTDLS.Semaphore\\NTDLS.Semaphore.csproj"
-              }
-            }
-          },
-          "net8.0": {
-            "targetAlias": "net8.0",
-            "projectReferences": {
-              "G:\\git\\NTDLS.Helpers\\NTDLS.Helpers\\NTDLS.Helpers.csproj": {
-                "projectPath": "G:\\git\\NTDLS.Helpers\\NTDLS.Helpers\\NTDLS.Helpers.csproj"
-              },
-              "G:\\git\\NTDLS.Semaphore\\NTDLS.Semaphore\\NTDLS.Semaphore.csproj": {
-                "projectPath": "G:\\git\\NTDLS.Semaphore\\NTDLS.Semaphore\\NTDLS.Semaphore.csproj"
+              "G:\\coldfar_py\\sharftrade9\\Libs2\\Katzebase\\NTDLS.Semaphore\\NTDLS.Semaphore\\NTDLS.Semaphore.csproj": {
+                "projectPath": "G:\\coldfar_py\\sharftrade9\\Libs2\\Katzebase\\NTDLS.Semaphore\\NTDLS.Semaphore\\NTDLS.Semaphore.csproj"
               }
             }
           }
@@ -1042,64 +191,12 @@
         }
       },
       "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
+        "net9.0": {
+          "targetAlias": "net9.0",
           "dependencies": {
-            "Newtonsoft.Json": {
+            "System.Runtime.Caching": {
               "target": "Package",
-              "version": "[13.0.3, )"
-            },
-            "protobuf-net": {
-              "target": "Package",
-              "version": "[3.2.30, )"
-            }
-          },
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[6.0.32, 6.0.32]"
-            },
-            {
-              "name": "Microsoft.Net.Sdk.Compilers.Toolset",
-              "version": "[9.0.100-preview.7.24407.12, 9.0.100-preview.7.24407.12]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[6.0.32, 6.0.32]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[6.0.32, 6.0.32]"
-            }
-          ],
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100-preview.7.24407.12\\RuntimeIdentifierGraph.json"
-        },
-        "net7.0": {
-          "targetAlias": "net7.0",
-          "dependencies": {
-            "Newtonsoft.Json": {
-              "target": "Package",
-              "version": "[13.0.3, )"
-            },
-            "protobuf-net": {
-              "target": "Package",
-              "version": "[3.2.30, )"
+              "version": "[9.0.0-rc.1.24431.7, )"
             }
           },
           "imports": [
@@ -1117,54 +214,6 @@
             {
               "name": "Microsoft.Net.Sdk.Compilers.Toolset",
               "version": "[9.0.100-preview.7.24407.12, 9.0.100-preview.7.24407.12]"
-            }
-          ],
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100-preview.7.24407.12\\RuntimeIdentifierGraph.json"
-        },
-        "net8.0": {
-          "targetAlias": "net8.0",
-          "dependencies": {
-            "Newtonsoft.Json": {
-              "target": "Package",
-              "version": "[13.0.3, )"
-            },
-            "protobuf-net": {
-              "target": "Package",
-              "version": "[3.2.30, )"
-            }
-          },
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[8.0.7, 8.0.7]"
-            },
-            {
-              "name": "Microsoft.Net.Sdk.Compilers.Toolset",
-              "version": "[9.0.100-preview.7.24407.12, 9.0.100-preview.7.24407.12]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[8.0.7, 8.0.7]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[8.0.7, 8.0.7]"
             }
           ],
           "frameworkReferences": {
@@ -1176,14 +225,14 @@
         }
       }
     },
-    "G:\\git\\NTDLS.Semaphore\\NTDLS.Semaphore\\NTDLS.Semaphore.csproj": {
-      "version": "3.4.2",
+    "G:\\coldfar_py\\sharftrade9\\Libs2\\Katzebase\\NTDLS.Helpers\\NTDLS.Helpers\\NTDLS.Helpers.csproj": {
+      "version": "1.2.8",
       "restore": {
-        "projectUniqueName": "G:\\git\\NTDLS.Semaphore\\NTDLS.Semaphore\\NTDLS.Semaphore.csproj",
-        "projectName": "NTDLS.Semaphore",
-        "projectPath": "G:\\git\\NTDLS.Semaphore\\NTDLS.Semaphore\\NTDLS.Semaphore.csproj",
+        "projectUniqueName": "G:\\coldfar_py\\sharftrade9\\Libs2\\Katzebase\\NTDLS.Helpers\\NTDLS.Helpers\\NTDLS.Helpers.csproj",
+        "projectName": "NTDLS.Helpers",
+        "projectPath": "G:\\coldfar_py\\sharftrade9\\Libs2\\Katzebase\\NTDLS.Helpers\\NTDLS.Helpers\\NTDLS.Helpers.csproj",
         "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "G:\\git\\NTDLS.Semaphore\\NTDLS.Semaphore\\obj\\",
+        "outputPath": "G:\\coldfar_py\\sharftrade9\\Libs2\\Katzebase\\NTDLS.Helpers\\NTDLS.Helpers\\obj\\",
         "projectStyle": "PackageReference",
         "crossTargeting": true,
         "configFilePaths": [
@@ -1191,9 +240,7 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net6.0",
-          "net7.0",
-          "net8.0"
+          "net9.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -1201,16 +248,253 @@
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net6.0": {
-            "targetAlias": "net6.0",
-            "projectReferences": {}
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "G:\\coldfar_py\\sharftrade9\\Libs2\\Katzebase\\fstring\\fstring.fsproj": {
+                "projectPath": "G:\\coldfar_py\\sharftrade9\\Libs2\\Katzebase\\fstring\\fstring.fsproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.Net.Sdk.Compilers.Toolset",
+              "version": "[9.0.100-preview.7.24407.12, 9.0.100-preview.7.24407.12]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
           },
-          "net7.0": {
-            "targetAlias": "net7.0",
-            "projectReferences": {}
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100-preview.7.24407.12/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "G:\\coldfar_py\\sharftrade9\\Libs2\\Katzebase\\NTDLS.Katzebase.Client\\NTDLS.Katzebase.Client.csproj": {
+      "version": "1.7.6",
+      "restore": {
+        "projectUniqueName": "G:\\coldfar_py\\sharftrade9\\Libs2\\Katzebase\\NTDLS.Katzebase.Client\\NTDLS.Katzebase.Client.csproj",
+        "projectName": "NTDLS.Katzebase.Client",
+        "projectPath": "G:\\coldfar_py\\sharftrade9\\Libs2\\Katzebase\\NTDLS.Katzebase.Client\\NTDLS.Katzebase.Client.csproj",
+        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
+        "outputPath": "G:\\coldfar_py\\sharftrade9\\Libs2\\Katzebase\\NTDLS.Katzebase.Client\\obj\\",
+        "projectStyle": "PackageReference",
+        "crossTargeting": true,
+        "configFilePaths": [
+          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "G:\\coldfar_py\\sharftrade9\\Libs2\\Katzebase\\NTDLS.Helpers\\NTDLS.Helpers\\NTDLS.Helpers.csproj": {
+                "projectPath": "G:\\coldfar_py\\sharftrade9\\Libs2\\Katzebase\\NTDLS.Helpers\\NTDLS.Helpers\\NTDLS.Helpers.csproj"
+              },
+              "G:\\coldfar_py\\sharftrade9\\Libs2\\Katzebase\\NTDLS.ReliableMessaging\\NTDLS.ReliableMessaging\\NTDLS.ReliableMessaging.csproj": {
+                "projectPath": "G:\\coldfar_py\\sharftrade9\\Libs2\\Katzebase\\NTDLS.ReliableMessaging\\NTDLS.ReliableMessaging\\NTDLS.ReliableMessaging.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "Microsoft.Extensions.Caching.Memory": {
+              "target": "Package",
+              "version": "[9.0.0-rc.1.24431.7, )"
+            }
           },
-          "net8.0": {
-            "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.Net.Sdk.Compilers.Toolset",
+              "version": "[9.0.100-preview.7.24407.12, 9.0.100-preview.7.24407.12]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100-preview.7.24407.12/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "G:\\coldfar_py\\sharftrade9\\Libs2\\Katzebase\\NTDLS.Katzebase.Server\\NTDLS.Katzebase.Engine\\NTDLS.Katzebase.Engine.csproj": {
+      "version": "0.15.0",
+      "restore": {
+        "projectUniqueName": "G:\\coldfar_py\\sharftrade9\\Libs2\\Katzebase\\NTDLS.Katzebase.Server\\NTDLS.Katzebase.Engine\\NTDLS.Katzebase.Engine.csproj",
+        "projectName": "NTDLS.Katzebase.Engine",
+        "projectPath": "G:\\coldfar_py\\sharftrade9\\Libs2\\Katzebase\\NTDLS.Katzebase.Server\\NTDLS.Katzebase.Engine\\NTDLS.Katzebase.Engine.csproj",
+        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
+        "outputPath": "G:\\coldfar_py\\sharftrade9\\Libs2\\Katzebase\\NTDLS.Katzebase.Server\\NTDLS.Katzebase.Engine\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "G:\\coldfar_py\\sharftrade9\\Libs2\\Katzebase\\fstring\\fstring.fsproj": {
+                "projectPath": "G:\\coldfar_py\\sharftrade9\\Libs2\\Katzebase\\fstring\\fstring.fsproj"
+              },
+              "G:\\coldfar_py\\sharftrade9\\Libs2\\Katzebase\\NTDLS.DelegateThreadPooling\\NTDLS.DelegateThreadPooling\\NTDLS.DelegateThreadPooling.csproj": {
+                "projectPath": "G:\\coldfar_py\\sharftrade9\\Libs2\\Katzebase\\NTDLS.DelegateThreadPooling\\NTDLS.DelegateThreadPooling\\NTDLS.DelegateThreadPooling.csproj"
+              },
+              "G:\\coldfar_py\\sharftrade9\\Libs2\\Katzebase\\NTDLS.FastMemoryCache\\FastMemoryCache\\NTDLS.FastMemoryCache.csproj": {
+                "projectPath": "G:\\coldfar_py\\sharftrade9\\Libs2\\Katzebase\\NTDLS.FastMemoryCache\\FastMemoryCache\\NTDLS.FastMemoryCache.csproj"
+              },
+              "G:\\coldfar_py\\sharftrade9\\Libs2\\Katzebase\\NTDLS.Katzebase.Client\\NTDLS.Katzebase.Client.csproj": {
+                "projectPath": "G:\\coldfar_py\\sharftrade9\\Libs2\\Katzebase\\NTDLS.Katzebase.Client\\NTDLS.Katzebase.Client.csproj"
+              },
+              "G:\\coldfar_py\\sharftrade9\\Libs2\\Katzebase\\NTDLS.Katzebase.Server\\NTDLS.Katzebase.Shared\\NTDLS.Katzebase.Shared.csproj": {
+                "projectPath": "G:\\coldfar_py\\sharftrade9\\Libs2\\Katzebase\\NTDLS.Katzebase.Server\\NTDLS.Katzebase.Shared\\NTDLS.Katzebase.Shared.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "CoreCLR-NCalc": {
+              "target": "Package",
+              "version": "[3.1.253, )"
+            },
+            "Serilog": {
+              "target": "Package",
+              "version": "[4.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.Net.Sdk.Compilers.Toolset",
+              "version": "[9.0.100-preview.7.24407.12, 9.0.100-preview.7.24407.12]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100-preview.7.24407.12/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "G:\\coldfar_py\\sharftrade9\\Libs2\\Katzebase\\NTDLS.Katzebase.Server\\NTDLS.Katzebase.Shared\\NTDLS.Katzebase.Shared.csproj": {
+      "version": "0.15.0",
+      "restore": {
+        "projectUniqueName": "G:\\coldfar_py\\sharftrade9\\Libs2\\Katzebase\\NTDLS.Katzebase.Server\\NTDLS.Katzebase.Shared\\NTDLS.Katzebase.Shared.csproj",
+        "projectName": "NTDLS.Katzebase.Shared",
+        "projectPath": "G:\\coldfar_py\\sharftrade9\\Libs2\\Katzebase\\NTDLS.Katzebase.Server\\NTDLS.Katzebase.Shared\\NTDLS.Katzebase.Shared.csproj",
+        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
+        "outputPath": "G:\\coldfar_py\\sharftrade9\\Libs2\\Katzebase\\NTDLS.Katzebase.Server\\NTDLS.Katzebase.Shared\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
             "projectReferences": {}
           }
         },
@@ -1226,46 +510,14 @@
         }
       },
       "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[6.0.32, 6.0.32]"
-            },
-            {
-              "name": "Microsoft.Net.Sdk.Compilers.Toolset",
-              "version": "[9.0.100-preview.7.24407.12, 9.0.100-preview.7.24407.12]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[6.0.32, 6.0.32]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[6.0.32, 6.0.32]"
-            }
-          ],
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "Microsoft.Extensions.Caching.Memory": {
+              "target": "Package",
+              "version": "[9.0.0-rc.1.24431.7, )"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100-preview.7.24407.12\\RuntimeIdentifierGraph.json"
-        },
-        "net7.0": {
-          "targetAlias": "net7.0",
           "imports": [
             "net461",
             "net462",
@@ -1288,10 +540,55 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100-preview.7.24407.12\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100-preview.7.24407.12/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "G:\\coldfar_py\\sharftrade9\\Libs2\\Katzebase\\NTDLS.Katzebase.Server\\TestUseWithApi\\TestUseWithApi.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "G:\\coldfar_py\\sharftrade9\\Libs2\\Katzebase\\NTDLS.Katzebase.Server\\TestUseWithApi\\TestUseWithApi.csproj",
+        "projectName": "TestUseWithApi",
+        "projectPath": "G:\\coldfar_py\\sharftrade9\\Libs2\\Katzebase\\NTDLS.Katzebase.Server\\TestUseWithApi\\TestUseWithApi.csproj",
+        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
+        "outputPath": "G:\\coldfar_py\\sharftrade9\\Libs2\\Katzebase\\NTDLS.Katzebase.Server\\TestUseWithApi\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
         },
-        "net8.0": {
-          "targetAlias": "net8.0",
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "G:\\coldfar_py\\sharftrade9\\Libs2\\Katzebase\\NTDLS.Katzebase.Server\\NTDLS.Katzebase.Engine\\NTDLS.Katzebase.Engine.csproj": {
+                "projectPath": "G:\\coldfar_py\\sharftrade9\\Libs2\\Katzebase\\NTDLS.Katzebase.Server\\NTDLS.Katzebase.Engine\\NTDLS.Katzebase.Engine.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
           "imports": [
             "net461",
             "net462",
@@ -1305,20 +602,161 @@
           "warn": true,
           "downloadDependencies": [
             {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[8.0.7, 8.0.7]"
+              "name": "Microsoft.Net.Sdk.Compilers.Toolset",
+              "version": "[9.0.100-preview.7.24407.12, 9.0.100-preview.7.24407.12]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100-preview.7.24407.12/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "G:\\coldfar_py\\sharftrade9\\Libs2\\Katzebase\\NTDLS.ReliableMessaging\\NTDLS.ReliableMessaging\\NTDLS.ReliableMessaging.csproj": {
+      "version": "1.10.9",
+      "restore": {
+        "projectUniqueName": "G:\\coldfar_py\\sharftrade9\\Libs2\\Katzebase\\NTDLS.ReliableMessaging\\NTDLS.ReliableMessaging\\NTDLS.ReliableMessaging.csproj",
+        "projectName": "NTDLS.ReliableMessaging",
+        "projectPath": "G:\\coldfar_py\\sharftrade9\\Libs2\\Katzebase\\NTDLS.ReliableMessaging\\NTDLS.ReliableMessaging\\NTDLS.ReliableMessaging.csproj",
+        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
+        "outputPath": "G:\\coldfar_py\\sharftrade9\\Libs2\\Katzebase\\NTDLS.ReliableMessaging\\NTDLS.ReliableMessaging\\obj\\",
+        "projectStyle": "PackageReference",
+        "crossTargeting": true,
+        "configFilePaths": [
+          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "G:\\coldfar_py\\sharftrade9\\Libs2\\Katzebase\\NTDLS.Helpers\\NTDLS.Helpers\\NTDLS.Helpers.csproj": {
+                "projectPath": "G:\\coldfar_py\\sharftrade9\\Libs2\\Katzebase\\NTDLS.Helpers\\NTDLS.Helpers\\NTDLS.Helpers.csproj"
+              },
+              "G:\\coldfar_py\\sharftrade9\\Libs2\\Katzebase\\NTDLS.Semaphore\\NTDLS.Semaphore\\NTDLS.Semaphore.csproj": {
+                "projectPath": "G:\\coldfar_py\\sharftrade9\\Libs2\\Katzebase\\NTDLS.Semaphore\\NTDLS.Semaphore\\NTDLS.Semaphore.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
             },
+            "protobuf-net": {
+              "target": "Package",
+              "version": "[3.2.30, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
             {
               "name": "Microsoft.Net.Sdk.Compilers.Toolset",
               "version": "[9.0.100-preview.7.24407.12, 9.0.100-preview.7.24407.12]"
-            },
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100-preview.7.24407.12/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "G:\\coldfar_py\\sharftrade9\\Libs2\\Katzebase\\NTDLS.Semaphore\\NTDLS.Semaphore\\NTDLS.Semaphore.csproj": {
+      "version": "3.4.2",
+      "restore": {
+        "projectUniqueName": "G:\\coldfar_py\\sharftrade9\\Libs2\\Katzebase\\NTDLS.Semaphore\\NTDLS.Semaphore\\NTDLS.Semaphore.csproj",
+        "projectName": "NTDLS.Semaphore",
+        "projectPath": "G:\\coldfar_py\\sharftrade9\\Libs2\\Katzebase\\NTDLS.Semaphore\\NTDLS.Semaphore\\NTDLS.Semaphore.csproj",
+        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
+        "outputPath": "G:\\coldfar_py\\sharftrade9\\Libs2\\Katzebase\\NTDLS.Semaphore\\NTDLS.Semaphore\\obj\\",
+        "projectStyle": "PackageReference",
+        "crossTargeting": true,
+        "configFilePaths": [
+          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
             {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[8.0.7, 8.0.7]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[8.0.7, 8.0.7]"
+              "name": "Microsoft.Net.Sdk.Compilers.Toolset",
+              "version": "[9.0.100-preview.7.24407.12, 9.0.100-preview.7.24407.12]"
             }
           ],
           "frameworkReferences": {

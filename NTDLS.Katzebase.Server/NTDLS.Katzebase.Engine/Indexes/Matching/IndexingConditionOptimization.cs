@@ -100,7 +100,7 @@ namespace NTDLS.Katzebase.Engine.Indexes.Matching
                             locatedIndexAttribute = false;
                             foreach (var condition in subCondition.Conditions.Where(o => o.Left.Prefix.Is(workingSchemaPrefix)))
                             {
-                                if (condition.Left.Value?.Is(attribute.Field) == true)
+                                if (condition.Left.Value?.s?.Is(attribute.Field) == true)
                                 {
                                     indexSelection.CoveredConditions.Add(condition);
                                     //Console.WriteLine($"Indexed: {condition.ConditionKey} is ({condition.Left} {condition.LogicalQualifier} {condition.Right})");
@@ -167,7 +167,7 @@ namespace NTDLS.Katzebase.Engine.Indexes.Matching
                             {
                                 var matchedConditions = subCondition.Conditions
                                     .Where(o => o.Left.Prefix == workingSchemaPrefix
-                                    && o.IsIndexOptimized == false && o.Left.Value?.Is(attribute.Field) == true).ToList();
+                                    && o.IsIndexOptimized == false && o.Left.Value?.s?.Is(attribute.Field) == true).ToList();
 
                                 if (matchedConditions.Count == 0)
                                 {
@@ -225,7 +225,7 @@ namespace NTDLS.Katzebase.Engine.Indexes.Matching
                             foreach (var attribute in nonCompositeIndex.Index.Attributes)
                             {
                                 var matchedConditions = subCondition.Conditions
-                                    .Where(o => o.Left.Prefix == workingSchemaPrefix && o.IsIndexOptimized == false && o.Left.Value?.Is(attribute.Field) == true).ToList();
+                                    .Where(o => o.Left.Prefix == workingSchemaPrefix && o.IsIndexOptimized == false && o.Left.Value?.s?.Is(attribute.Field) == true).ToList();
 
                                 if (matchedConditions.Count == 0)
                                 {

@@ -1,4 +1,5 @@
-﻿using NTDLS.Katzebase.Client.Exceptions;
+﻿using fs;
+using NTDLS.Katzebase.Client.Exceptions;
 using NTDLS.Katzebase.Shared;
 
 namespace NTDLS.Katzebase.Engine.Functions.Scaler
@@ -59,8 +60,8 @@ namespace NTDLS.Katzebase.Engine.Functions.Scaler
                 }
                 else if (nameAndDefault.Length == 2)
                 {
-                    parameters.Add(new ScalerFunctionParameterPrototype(paramType, nameAndDefault[0],
-                        nameAndDefault[1].Is("null") ? null : nameAndDefault[1]));
+                    var df = nameAndDefault[1].Is("null") ? null : nameAndDefault[1];
+                    parameters.Add(new ScalerFunctionParameterPrototype(paramType, nameAndDefault[0], df.toF()));
                 }
                 else
                 {
@@ -71,7 +72,7 @@ namespace NTDLS.Katzebase.Engine.Functions.Scaler
             return new ScalerFunction(functionName, returnType, parameters);
         }
 
-        internal ScalerFunctionParameterValueCollection ApplyParameters(List<string?> values)
+        internal ScalerFunctionParameterValueCollection ApplyParameters(List<fstring?> values)
         {
             int requiredParameterCount = Parameters.Count(o => o.Type.ToString().ContainsInsensitive("optional") == false);
 

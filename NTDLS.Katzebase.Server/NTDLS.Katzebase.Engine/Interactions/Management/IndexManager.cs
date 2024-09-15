@@ -1,4 +1,5 @@
-﻿using NTDLS.Helpers;
+﻿using fs;
+using NTDLS.Helpers;
 using NTDLS.Katzebase.Client.Exceptions;
 using NTDLS.Katzebase.Client.Payloads;
 using NTDLS.Katzebase.Client.Types;
@@ -215,7 +216,7 @@ namespace NTDLS.Katzebase.Engine.Interactions.Management
         /// <param name="keyValues">For JOIN operations, contains the values of the joining document.</param>
         /// <returns></returns>
         internal Dictionary<uint, DocumentPointer> MatchSchemaDocumentsByConditionsClause(
-                    PhysicalSchema physicalSchema, IndexingConditionOptimization optimization, string workingSchemaPrefix, KbInsensitiveDictionary<string>? keyValues = null)
+                    PhysicalSchema physicalSchema, IndexingConditionOptimization optimization, string workingSchemaPrefix, KbInsensitiveDictionary<fstring>? keyValues = null)
         {
             Dictionary<uint, DocumentPointer> accumulatedResults = new();
 
@@ -251,7 +252,7 @@ namespace NTDLS.Katzebase.Engine.Interactions.Management
         }
 
         private Dictionary<uint, DocumentPointer> MatchSchemaDocumentsByConditionsClauseGroup(Transaction transaction,
-            IndexingConditionLookup lookup, PhysicalSchema physicalSchema, string workingSchemaPrefix, KbInsensitiveDictionary<string>? keyValues)
+            IndexingConditionLookup lookup, PhysicalSchema physicalSchema, string workingSchemaPrefix, KbInsensitiveDictionary<fstring>? keyValues)
         {
             Dictionary<uint, DocumentPointer>? accumulatedResults = null;
 
@@ -266,7 +267,7 @@ namespace NTDLS.Katzebase.Engine.Interactions.Management
                     if (condition.LogicalQualifier == LogicalQualifier.Equals)
                     {
                         //For join operations, check the keyValues for the raw value to lookup.
-                        if (keyValues?.TryGetValue(condition.Right.Key, out string? keyValue) != true)
+                        if (keyValues?.TryGetValue(condition.Right.Key, out fstring? keyValue) != true)
                         {
                             keyValue = condition.Right.Value;
                         }
@@ -450,55 +451,55 @@ namespace NTDLS.Katzebase.Engine.Interactions.Management
         #region Matching / Seeking / Scanning.
 
         private static List<PhysicalIndexLeaf> MatchIndexLeaves(Transaction transaction, Condition condition,
-            List<PhysicalIndexLeaf> workingPhysicalIndexLeaves, KbInsensitiveDictionary<string>? keyValues)
+            List<PhysicalIndexLeaf> workingPhysicalIndexLeaves, KbInsensitiveDictionary<fstring>? keyValues)
         {
             //For join operations, check the keyValues for the raw value to lookup.
-            if (keyValues?.TryGetValue(condition.Right.Key, out string? keyValue) != true)
+            if (keyValues?.TryGetValue(condition.Right.Key, out fstring? keyValue) != true)
             {
                 keyValue = condition.Right.Value; //Otherwise default to the value in the condition.
             }
-
+            var keyStr = keyValue?.s ?? "";
             return condition.LogicalQualifier switch
             {
                 LogicalQualifier.Equals => workingPhysicalIndexLeaves
                                         .SelectMany(o => o.Children
-                                        .Where(w => Condition.IsMatchEqual(transaction, w.Key, keyValue) == true)
+                                        .Where(w => Condition.IsMatchEqual(transaction, w.Key.toF(), keyStr.toF()) == true)
                                         .Select(s => s.Value)).ToList(),
                 LogicalQualifier.NotEquals => workingPhysicalIndexLeaves
                                         .SelectMany(o => o.Children
-                                        .Where(w => Condition.IsMatchEqual(transaction, w.Key, keyValue) == false)
+                                        .Where(w => Condition.IsMatchEqual(transaction, w.Key.toF(), keyStr.toF()) == false)
                                         .Select(s => s.Value)).ToList(),
                 LogicalQualifier.GreaterThan => workingPhysicalIndexLeaves
                                         .SelectMany(o => o.Children
-                                        .Where(w => Condition.IsMatchGreater(transaction, w.Key, keyValue) == true)
+                                        .Where(w => Condition.IsMatchGreater(transaction, w.Key, keyStr) == true)
                                         .Select(s => s.Value)).ToList(),
                 LogicalQualifier.GreaterThanOrEqual => workingPhysicalIndexLeaves
                                         .SelectMany(o => o.Children
-                                        .Where(w => Condition.IsMatchGreaterOrEqual(transaction, w.Key, keyValue) == true)
+                                        .Where(w => Condition.IsMatchGreaterOrEqual(transaction, w.Key, keyStr) == true)
                                         .Select(s => s.Value)).ToList(),
                 LogicalQualifier.LessThan => workingPhysicalIndexLeaves
                                         .SelectMany(o => o.Children
-                                        .Where(w => Condition.IsMatchLesser(transaction, w.Key, keyValue) == true)
+                                        .Where(w => Condition.IsMatchLesser(transaction, w.Key, keyStr) == true)
                                         .Select(s => s.Value)).ToList(),
                 LogicalQualifier.LessThanOrEqual => workingPhysicalIndexLeaves
                                         .SelectMany(o => o.Children
-                                        .Where(w => Condition.IsMatchLesserOrEqual(transaction, w.Key, keyValue) == true)
+                                        .Where(w => Condition.IsMatchLesserOrEqual(transaction, w.Key, keyStr) == true)
                                         .Select(s => s.Value)).ToList(),
                 LogicalQualifier.Like => workingPhysicalIndexLeaves
                                         .SelectMany(o => o.Children
-                                        .Where(w => Condition.IsMatchLike(transaction, w.Key, keyValue) == true)
+                                        .Where(w => Condition.IsMatchLike(transaction, w.Key, keyStr) == true)
                                         .Select(s => s.Value)).ToList(),
                 LogicalQualifier.NotLike => workingPhysicalIndexLeaves
                                         .SelectMany(o => o.Children
-                                        .Where(w => Condition.IsMatchLike(transaction, w.Key, keyValue) == false)
+                                        .Where(w => Condition.IsMatchLike(transaction, w.Key, keyStr) == false)
                                         .Select(s => s.Value)).ToList(),
                 LogicalQualifier.Between => workingPhysicalIndexLeaves
                                         .SelectMany(o => o.Children
-                                        .Where(w => Condition.IsMatchBetween(transaction, w.Key, keyValue) == true)
+                                        .Where(w => Condition.IsMatchBetween(transaction, w.Key, keyStr) == true)
                                         .Select(s => s.Value)).ToList(),
                 LogicalQualifier.NotBetween => workingPhysicalIndexLeaves
                                         .SelectMany(o => o.Children
-                                        .Where(w => Condition.IsMatchBetween(transaction, w.Key, keyValue) == false)
+                                        .Where(w => Condition.IsMatchBetween(transaction, w.Key, keyStr) == false)
                                         .Select(s => s.Value)).ToList(),
                 _ => throw new KbNotImplementedException($"Logical qualifier has not been implemented for indexing: {condition.LogicalQualifier}"),
             };
@@ -703,7 +704,7 @@ namespace NTDLS.Katzebase.Engine.Interactions.Management
             try
             {
                 var documentField = physicalIndex.Attributes[0].Field;
-                document.Elements.TryGetValue(documentField.EnsureNotNull(), out string? value);
+                document.Elements.TryGetValue(documentField.EnsureNotNull(), out fstring? value);
 
                 uint indexPartition = physicalIndex.ComputePartition(value);
 
@@ -769,6 +770,7 @@ namespace NTDLS.Katzebase.Engine.Interactions.Management
             }
         }
 
+        //大概率 是 string 不是 fstring
         private static List<string> GetIndexSearchTokens(Transaction transaction, PhysicalIndex physicalIndex, PhysicalDocument document)
         {
             try
@@ -777,11 +779,11 @@ namespace NTDLS.Katzebase.Engine.Interactions.Management
 
                 foreach (var indexAttribute in physicalIndex.Attributes)
                 {
-                    if (document.Elements.TryGetValue(indexAttribute.Field.EnsureNotNull(), out string? documentValue))
+                    if (document.Elements.TryGetValue(indexAttribute.Field.EnsureNotNull(), out fstring? documentValue))
                     {
                         if (documentValue != null) //TODO: How do we handle indexed NULL values?
                         {
-                            result.Add(documentValue.ToLowerInvariant());
+                            result.Add(documentValue.ToLowerInvariant().s);
                         }
                     }
                 }
@@ -1105,7 +1107,7 @@ namespace NTDLS.Katzebase.Engine.Interactions.Management
                 try
                 {
                     var documentField = parameter.Operation.PhysicalIndex.Attributes[0].Field;
-                    physicalDocument.Elements.TryGetValue(documentField.EnsureNotNull(), out string? value);
+                    physicalDocument.Elements.TryGetValue(documentField.EnsureNotNull(), out fstring? value);
 
                     uint indexPartition = parameter.Operation.PhysicalIndex.ComputePartition(value);
 

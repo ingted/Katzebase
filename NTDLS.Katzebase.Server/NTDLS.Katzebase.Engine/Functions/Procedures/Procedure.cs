@@ -1,4 +1,5 @@
-﻿using NTDLS.Katzebase.Client.Exceptions;
+﻿using fs;
+using NTDLS.Katzebase.Client.Exceptions;
 using NTDLS.Katzebase.Engine.Functions.Parameters;
 using NTDLS.Katzebase.Shared;
 
@@ -42,7 +43,7 @@ namespace NTDLS.Katzebase.Engine.Functions.Procedures
                 else if (nameAndDefault.Length == 2)
                 {
                     parameters.Add(new ProcedureParameterPrototype(paramType, nameAndDefault[0],
-                        nameAndDefault[1].Is("null") ? null : nameAndDefault[1]));
+                        (nameAndDefault[1].Is("null") ? null : nameAndDefault[1]).toF()));
                 }
                 else
                 {

@@ -1,4 +1,6 @@
-﻿namespace NTDLS.Katzebase.Engine.Functions.Aggregate
+﻿using fs;
+
+namespace NTDLS.Katzebase.Engine.Functions.Aggregate
 {
     /// <summary>
     /// A parsed function parameter prototype
@@ -7,7 +9,7 @@
     {
         public KbAggregateFunctionParameterType Type { get; private set; }
         public string Name { get; private set; }
-        public string? DefaultValue { get; private set; }
+        public fstring? DefaultValue { get; private set; }
         public bool HasDefault { get; private set; }
 
         public AggregateFunctionParameterPrototype(KbAggregateFunctionParameterType type, string name)
@@ -18,7 +20,7 @@
 
         }
 
-        public AggregateFunctionParameterPrototype(KbAggregateFunctionParameterType type, string name, string? defaultValue)
+        public AggregateFunctionParameterPrototype(KbAggregateFunctionParameterType type, string name, fstring? defaultValue)
         {
             Type = type;
             Name = name;

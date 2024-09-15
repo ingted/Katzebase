@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using fs;
+using Newtonsoft.Json;
 using NTDLS.Helpers;
 using NTDLS.Katzebase.Client.Exceptions;
 using NTDLS.Katzebase.Client.Payloads;
@@ -80,11 +81,11 @@ namespace NTDLS.Katzebase.Engine.Interactions.QueryHandlers
 
                 foreach (var row in result.Rows)
                 {
-                    var document = new KbInsensitiveDictionary<string>();
+                    var document = new KbInsensitiveDictionary<fstring>();
 
                     for (int i = 0; i < result.Fields.Count; i++)
                     {
-                        document.Add(result.Fields[i].Name, row.Values[i] ?? string.Empty);
+                        document.Add(result.Fields[i].Name, row.Values[i] ?? fstring.Empty);
                     }
                     string documentContent = JsonConvert.SerializeObject(document);
 
@@ -116,17 +117,17 @@ namespace NTDLS.Katzebase.Engine.Interactions.QueryHandlers
 
                 foreach (var upsertValues in preparedQuery.UpsertValues)
                 {
-                    var keyValuePairs = new KbInsensitiveDictionary<string?>();
+                    var keyValuePairs = new KbInsensitiveDictionary<fstring?>();
 
                     foreach (var updateValue in upsertValues)
                     {
-                        string? fieldValue = string.Empty;
+                        fstring? fieldValue = fstring.Empty;
 
                         //Execute functions
                         if (updateValue.Value is FunctionWithParams || updateValue.Value is FunctionExpression)
                         {
                             fieldValue = ScalerFunctionImplementation.CollapseAllFunctionParameters(
-                                transactionReference.Transaction, updateValue.Value, new KbInsensitiveDictionary<string?>());
+                                transactionReference.Transaction, updateValue.Value, new KbInsensitiveDictionary<fstring?>());
                         }
                         else if (updateValue.Value is FunctionConstantParameter functionConstantParameter)
                         {
@@ -187,7 +188,7 @@ namespace NTDLS.Katzebase.Engine.Interactions.QueryHandlers
 
                     foreach (var updateValue in preparedQuery.UpdateValues)
                     {
-                        string? fieldValue = string.Empty;
+                        fstring? fieldValue = fstring.Empty;
 
                         //Execute functions
                         if (updateValue.Value is FunctionWithParams || updateValue.Value is FunctionExpression)

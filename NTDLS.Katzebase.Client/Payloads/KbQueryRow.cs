@@ -1,10 +1,12 @@
-﻿namespace NTDLS.Katzebase.Client.Payloads
+﻿using fs;
+
+namespace NTDLS.Katzebase.Client.Payloads
 {
     public class KbQueryRow
     {
-        public List<string?> Values { get; set; }
+        public List<fstring?> Values { get; set; }
 
-        public KbQueryRow(List<string?> values)
+        public KbQueryRow(List<fstring?> values)
         {
             Values = values;
         }
@@ -14,7 +16,7 @@
             Values = new();
         }
 
-        public void AddValue(string? value)
+        public void AddValue(fstring? value)
         {
             Values.Add(value);
         }

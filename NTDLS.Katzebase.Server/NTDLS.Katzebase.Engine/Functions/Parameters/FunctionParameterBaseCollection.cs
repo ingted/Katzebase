@@ -1,4 +1,5 @@
-﻿using NTDLS.Katzebase.Engine.Query;
+﻿using fs;
+using NTDLS.Katzebase.Engine.Query;
 using NTDLS.Katzebase.Engine.Query.Tokenizers;
 
 namespace NTDLS.Katzebase.Engine.Functions.Parameters
@@ -22,11 +23,11 @@ namespace NTDLS.Katzebase.Engine.Functions.Parameters
             {
                 if (param is FunctionConstantParameter functionConstantParameter)
                 {
-                    functionConstantParameter.RawValue = tokenizer.GetLiteralValue(functionConstantParameter.RawValue);
+                    functionConstantParameter.RawValue = tokenizer.GetLiteralValue(functionConstantParameter.RawValue.s).toF();
                 }
                 else if (param is FunctionExpression functionExpression)
                 {
-                    functionExpression.Value = tokenizer.GetLiteralValue(functionExpression.Value);
+                    functionExpression.Value = tokenizer.GetLiteralValue(functionExpression.Value.s).toF();
                     RepopulateLiterals(functionExpression.Parameters, tokenizer);
                 }
 

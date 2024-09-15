@@ -1,4 +1,5 @@
-﻿using NTDLS.Katzebase.Client;
+﻿using fs;
+using NTDLS.Katzebase.Client;
 using NTDLS.Katzebase.Client.Exceptions;
 using NTDLS.Katzebase.Client.Types;
 using System.Text.RegularExpressions;
@@ -26,7 +27,7 @@ namespace NTDLS.Katzebase.Engine.Parsers
         private string _text;
         private int _caret = 0;
         private readonly char[] _standardTokenDelimiters;
-        private KbInsensitiveDictionary<string?>? _userParameters = null;
+        private KbInsensitiveDictionary<fstring?>? _userParameters = null;
 
         #endregion
 
@@ -111,7 +112,7 @@ namespace NTDLS.Katzebase.Engine.Parsers
 
         #endregion
 
-        public void SetUserParameters(KbInsensitiveDictionary<string?>? userParameters)
+        public void SetUserParameters(KbInsensitiveDictionary<fstring?>? userParameters)
         {
             _userParameters = userParameters;
         }

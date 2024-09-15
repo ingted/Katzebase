@@ -1,4 +1,6 @@
-﻿namespace NTDLS.Helpers
+﻿using fs;
+
+namespace NTDLS.Helpers
 {
     /// <summary>
     /// Helper functions for type conversions.
@@ -8,13 +10,13 @@
         /// <summary>
         /// Makes a best effort conversion from a string to the given type.
         /// </summary>
-        public static T ConvertTo<T>(string? value, T defaultValue)
+        public static T ConvertTo<T>(fstring? value, T defaultValue)
             => ConvertToNullable<T>(value) ?? defaultValue;
 
         /// <summary>
         /// Makes a best effort conversion from a string to the given type.
         /// </summary>
-        public static T? ConvertToNullable<T>(string? value)
+        public static T? ConvertToNullable<T>(fstring? value)
         {
             if (value == null)
             {
@@ -27,7 +29,7 @@
             }
             else if (typeof(T) == typeof(int))
             {
-                if (int.TryParse(value.Replace(",", ""), out var parsedResult) == false)
+                if (int.TryParse(value.s.Replace(",", ""), out var parsedResult) == false)
                 {
                     throw new Exception($"Error converting value [{value}] to integer.");
                 }
@@ -35,7 +37,7 @@
             }
             else if (typeof(T) == typeof(ulong))
             {
-                if (ulong.TryParse(value.Replace(",", ""), out var parsedResult) == false)
+                if (ulong.TryParse(value.s.Replace(",", ""), out var parsedResult) == false)
                 {
                     throw new Exception($"Error converting value [{value}] to integer.");
                 }
@@ -43,7 +45,7 @@
             }
             else if (typeof(T) == typeof(float))
             {
-                if (float.TryParse(value.Replace(",", ""), out var parsedResult) == false)
+                if (float.TryParse(value.s.Replace(",", ""), out var parsedResult) == false)
                 {
                     throw new Exception($"Error converting value [{value}] to float.");
                 }
@@ -51,7 +53,7 @@
             }
             else if (typeof(T) == typeof(double))
             {
-                if (double.TryParse(value.Replace(",", ""), out var parsedResult) == false)
+                if (double.TryParse(value.s.Replace(",", ""), out var parsedResult) == false)
                 {
                     throw new Exception($"Error converting value [{value}] to double.");
                 }
@@ -59,14 +61,14 @@
             }
             else if (typeof(T) == typeof(bool))
             {
-                value = value.Replace(",", "").ToLower();
+                value = value.s.Replace(",", "").ToLower().toF();
 
-                if (value.All(char.IsNumber))
+                if (value.s.All(char.IsNumber))
                 {
-                    value = int.Parse(value) != 0 ? "true" : "false";
+                    value = int.Parse(value.s) != 0 ? "true".toF() : "false".toF();
                 }
 
-                if (bool.TryParse(value, out var parsedResult) == false)
+                if (bool.TryParse(value.s, out var parsedResult) == false)
                 {
                     throw new Exception($"Error converting value [{value}] to boolean.");
                 }
@@ -81,7 +83,7 @@
         /// <summary>
         /// Makes a best effort conversion from a string to the given type.
         /// </summary>
-        public static T ConvertTo<T>(string value)
+        public static T ConvertTo<T>(fstring value)
         {
             if (typeof(T) == typeof(string))
             {
@@ -89,7 +91,7 @@
             }
             else if (typeof(T) == typeof(int))
             {
-                if (int.TryParse(value, out var parsedResult) == false)
+                if (int.TryParse(value.s, out var parsedResult) == false)
                 {
                     throw new Exception($"Error converting value [{value}] to integer.");
                 }
@@ -97,7 +99,7 @@
             }
             else if (typeof(T) == typeof(ulong))
             {
-                if (ulong.TryParse(value, out var parsedResult) == false)
+                if (ulong.TryParse(value.s, out var parsedResult) == false)
                 {
                     throw new Exception($"Error converting value [{value}] to integer.");
                 }
@@ -105,7 +107,7 @@
             }
             else if (typeof(T) == typeof(float))
             {
-                if (float.TryParse(value, out var parsedResult) == false)
+                if (float.TryParse(value.s, out var parsedResult) == false)
                 {
                     throw new Exception($"Error converting value [{value}] to float.");
                 }
@@ -113,7 +115,7 @@
             }
             else if (typeof(T) == typeof(double))
             {
-                if (double.TryParse(value, out var parsedResult) == false)
+                if (double.TryParse(value.s, out var parsedResult) == false)
                 {
                     throw new Exception($"Error converting value [{value}] to double.");
                 }
@@ -121,17 +123,17 @@
             }
             else if (typeof(T) == typeof(bool))
             {
-                value = value.ToLower();
+                value = value.s.ToLower().toF();
 
-                if (value.All(char.IsNumber))
+                if (value.s.All(char.IsNumber))
                 {
-                    if (int.Parse(value) != 0)
-                        value = "true";
+                    if (int.Parse(value.s) != 0)
+                        value = "true".toF();
                     else
-                        value = "false";
+                        value = "false".toF();
                 }
 
-                if (bool.TryParse(value, out var parsedResult) == false)
+                if (bool.TryParse(value.s, out var parsedResult) == false)
                 {
                     throw new Exception($"Error converting value [{value}] to boolean.");
                 }

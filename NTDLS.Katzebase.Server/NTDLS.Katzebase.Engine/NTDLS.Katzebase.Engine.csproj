@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>Library</OutputType>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <Company>NetworkDLS</Company>
@@ -10,6 +10,7 @@
     <Version>0.15.0</Version>
     <Authors>NetworkDLS</Authors>
     <ApplicationIcon>Icon.ico</ApplicationIcon>
+	  <LangVersion>preview</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -29,6 +30,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\fstring\fstring.fsproj" />
     <ProjectReference Include="..\..\NTDLS.DelegateThreadPooling\NTDLS.DelegateThreadPooling\NTDLS.DelegateThreadPooling.csproj" />
     <ProjectReference Include="..\..\NTDLS.FastMemoryCache\FastMemoryCache\NTDLS.FastMemoryCache.csproj" />
     <ProjectReference Include="..\..\NTDLS.Katzebase.Client\NTDLS.Katzebase.Client.csproj" />

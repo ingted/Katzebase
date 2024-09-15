@@ -1,4 +1,5 @@
-﻿using NTDLS.Katzebase.Client.Exceptions;
+﻿using fs;
+using NTDLS.Katzebase.Client.Exceptions;
 using NTDLS.Katzebase.Client.Payloads;
 using NTDLS.Katzebase.Engine.Query;
 using NTDLS.Katzebase.Engine.Sessions;
@@ -148,7 +149,7 @@ namespace NTDLS.Katzebase.Engine.Interactions.QueryHandlers
                     result.Fields.Add(new KbQueryField("Name"));
                     result.Fields.Add(new KbQueryField("Path"));
 
-                    result.Rows.AddRange(schemaList.Select(o => new KbQueryRow([o.Item1, o.Item2])));
+                    result.Rows.AddRange(schemaList.Select(o => new KbQueryRow([o.Item1.toF(), o.Item2.toF()])));
                 }
                 else
                 {

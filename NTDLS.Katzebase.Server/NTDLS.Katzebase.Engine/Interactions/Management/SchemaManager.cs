@@ -1,4 +1,5 @@
-﻿using NTDLS.Helpers;
+﻿using fs;
+using NTDLS.Helpers;
 using NTDLS.Katzebase.Client.Exceptions;
 using NTDLS.Katzebase.Client.Payloads;
 using NTDLS.Katzebase.Engine.Atomicity;
@@ -101,6 +102,29 @@ namespace NTDLS.Katzebase.Engine.Interactions.Management
                 core.IO.PutJsonNonTracked(Path.Combine(temporarySchemaPath, SchemaCatalogFile), new PhysicalSchemaCatalog());
                 core.IO.PutPBufNonTracked(Path.Combine(temporarySchemaPath, DocumentPageCatalogFile), new PhysicalDocumentPageCatalog());
                 core.IO.PutJsonNonTracked(Path.Combine(temporarySchemaPath, IndexCatalogFile), new PhysicalIndexCatalog());
+
+                var masterSchemaPath = Path.Combine(core.Settings.DataRootPath, "master");
+
+                if (!Directory.Exists(masterSchemaPath))
+                {
+                    Directory.CreateDirectory(masterSchemaPath);
+                    core.IO.PutJsonNonTracked(Path.Combine(masterSchemaPath, SchemaCatalogFile), new PhysicalSchemaCatalog());
+                    core.IO.PutPBufNonTracked(Path.Combine(masterSchemaPath, DocumentPageCatalogFile), new PhysicalDocumentPageCatalog());
+                    core.IO.PutJsonNonTracked(Path.Combine(masterSchemaPath, IndexCatalogFile), new PhysicalIndexCatalog());
+                }
+
+                var accountSchemaPath = Path.Combine(core.Settings.DataRootPath, "master", "account");
+
+                if (!Directory.Exists(accountSchemaPath))
+                {
+                    Directory.CreateDirectory(accountSchemaPath);
+                    core.IO.PutJsonNonTracked(Path.Combine(accountSchemaPath, SchemaCatalogFile), new PhysicalSchemaCatalog());
+                    core.IO.PutPBufNonTracked(Path.Combine(accountSchemaPath, DocumentPageCatalogFile), new PhysicalDocumentPageCatalog());
+                    core.IO.PutJsonNonTracked(Path.Combine(accountSchemaPath, IndexCatalogFile), new PhysicalIndexCatalog());
+                }
+
+
+
             }
             catch (Exception ex)
             {
@@ -406,7 +430,8 @@ namespace NTDLS.Katzebase.Engine.Interactions.Management
 
                     if (_core.IO.FileExists(transaction, parentCatalogDiskPath, LockOperation.Stability, out var parentSchemaCatalogLockKey) == false)
                     {
-                        throw new KbObjectNotFoundException($"Schema [{schemaName}] does not exist.");
+                        //throw new KbObjectNotFoundException($"Schema [{schemaName}] does not exist.");
+                        Console.WriteLine($"Schema [{schemaName}] does not exist.");
                     }
 
                     var parentCatalog = _core.IO.GetJson<PhysicalSchemaCatalog>(transaction,
@@ -519,10 +544,10 @@ namespace NTDLS.Katzebase.Engine.Interactions.Management
 
                 transaction.EnsureActive();
 
-                var values = new List<string?> {
-                    $"{page.PageNumber:n0}",
-                    $"{page.DocumentCount:n0}",
-                    $"{pageFullness:n2}%" };
+                var values = new List<fstring?> {
+                    $"{page.PageNumber:n0}".toF(),
+                    $"{page.DocumentCount:n0}".toF(),
+                    $"{pageFullness:n2}%".toF() };
 
                 if (includePhysicalPages)
                 {
@@ -530,12 +555,12 @@ namespace NTDLS.Katzebase.Engine.Interactions.Management
                     var physicalDocumentPage = _core.Documents.AcquireDocumentPage(
                         transaction, physicalSchema, page.PageNumber, LockOperation.Read);
 
-                    values.Add($"{page.PageNumber:n0}");
-                    values.Add($"{physicalDocumentPage.Documents.Count:n0}");
+                    values.Add($"{page.PageNumber:n0}".toF());
+                    values.Add($"{physicalDocumentPage.Documents.Count:n0}".toF());
 
-                    values.Add($"{(physicalDocumentPage.Documents.Min(o => o.Value.ContentLength * sizeof(char)) / 1024.0):n2}");
-                    values.Add($"{(physicalDocumentPage.Documents.Max(o => o.Value.ContentLength * sizeof(char)) / 1024.0):n2}");
-                    values.Add($"{(physicalDocumentPage.Documents.Average(o => o.Value.ContentLength * sizeof(char)) / 1024.0):n2}");
+                    values.Add($"{(physicalDocumentPage.Documents.Min(o => o.Value.ContentLength * sizeof(char)) / 1024.0):n2}".toF());
+                    values.Add($"{(physicalDocumentPage.Documents.Max(o => o.Value.ContentLength * sizeof(char)) / 1024.0):n2}".toF());
+                    values.Add($"{(physicalDocumentPage.Documents.Average(o => o.Value.ContentLength * sizeof(char)) / 1024.0):n2}".toF());
 
                     /*
                     foreach (var document in physicalDocumentPage.Documents)

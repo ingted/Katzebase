@@ -1,4 +1,5 @@
-﻿using NTDLS.Katzebase.Client.Exceptions;
+﻿using fs;
+using NTDLS.Katzebase.Client.Exceptions;
 using NTDLS.Katzebase.Client.Types;
 using NTDLS.Katzebase.Engine.Functions.Parameters;
 using NTDLS.Katzebase.Engine.Functions.Scaler;
@@ -119,7 +120,7 @@ namespace NTDLS.Katzebase.Engine.Functions
                             }
                             else
                             {
-                                var newField = new FunctionConstantParameter(field.Value.Text)
+                                var newField = new FunctionConstantParameter(field.Value.Text.toF())
                                 {
                                     Alias = field.Value.Alias
                                 };
@@ -298,7 +299,7 @@ namespace NTDLS.Katzebase.Engine.Functions
                 }
                 else
                 {
-                    var newField = new FunctionConstantParameter(field.Value.Text)
+                    var newField = new FunctionConstantParameter(field.Value.Text.toF())
                     {
                         Alias = field.Value.Alias
                     };
@@ -464,7 +465,7 @@ namespace NTDLS.Katzebase.Engine.Functions
                 }
             }
 
-            expression.Value = text;
+            expression.Value = text.toF();
 
             return expression;
         }
@@ -661,7 +662,7 @@ namespace NTDLS.Katzebase.Engine.Functions
                         }
                         else if (param.StartsWith("$") && param.EndsWith("$"))
                         {
-                            results.Parameters.Add(new FunctionConstantParameter(queryTokenizer.StringLiterals[param]));
+                            results.Parameters.Add(new FunctionConstantParameter(queryTokenizer.StringLiterals[param].toF()));
                         }
                         else
                         {
@@ -682,7 +683,7 @@ namespace NTDLS.Katzebase.Engine.Functions
             else
             {
                 //Parse constant.
-                return new FunctionConstantParameter(text);
+                return new FunctionConstantParameter(text.toF());
             }
         }
 

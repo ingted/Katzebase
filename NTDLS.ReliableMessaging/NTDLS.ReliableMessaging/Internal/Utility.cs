@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
-using ProtoBuf;
+//using ProtoBuf;
+using static fs.PB;
 using System.IO.Compression;
 
 namespace NTDLS.ReliableMessaging.Internal
@@ -23,7 +24,9 @@ namespace NTDLS.ReliableMessaging.Internal
         {
             if (obj == null) return Array.Empty<byte>();
             using var stream = new MemoryStream();
-            Serializer.Serialize(stream, obj);
+            //Serializer.Serialize(stream, obj);
+            //20240916: fstring PB
+            serializeF(stream, obj);
             return stream.ToArray();
         }
 
@@ -47,7 +50,10 @@ namespace NTDLS.ReliableMessaging.Internal
             using var stream = new MemoryStream();
             stream.Write(arrBytes, 0, arrBytes.Length);
             stream.Seek(0, SeekOrigin.Begin);
-            return Serializer.Deserialize<T>(stream);
+            //return Serializer.Deserialize<T>(stream);
+            //20240916: fstring PB
+            return deserializeF<T>(stream);
+
         }
 
         public static byte[] Compress(byte[]? bytes)

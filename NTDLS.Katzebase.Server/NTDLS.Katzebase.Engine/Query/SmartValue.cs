@@ -1,10 +1,11 @@
-﻿using NTDLS.Katzebase.Client.Exceptions;
+﻿using fs;
+using NTDLS.Katzebase.Client.Exceptions;
 
 namespace NTDLS.Katzebase.Engine.Query
 {
     public class SmartValue
     {
-        private string? _value = null;
+        private fstring? _value = null;
 
         /// <summary>
         /// This value is a constant string.
@@ -28,13 +29,18 @@ namespace NTDLS.Katzebase.Engine.Query
         /// The schema.field key for the field. Can be parsed to PrefixedField via PrefixedField.Parse(this.Key).
         /// </summary>
         public string Key
-            => string.IsNullOrEmpty(Prefix) ? (_value ?? "") : $"{Prefix}.{_value}";
+            => string.IsNullOrEmpty(Prefix) ? (_value?.s ?? "") : $"{Prefix}.{_value?.s}";
 
         public SmartValue()
         {
         }
 
         public SmartValue(string value)
+        {
+            Value = value.toF();
+        }
+
+        public SmartValue(fstring value)
         {
             Value = value;
         }
@@ -57,7 +63,7 @@ namespace NTDLS.Katzebase.Engine.Query
             return _value?.ToString() ?? string.Empty;
         }
 
-        public string? Value
+        public fstring? Value
         {
             get { return _value; }
             set
@@ -68,7 +74,7 @@ namespace NTDLS.Katzebase.Engine.Query
 
                 _value = value?.ToLowerInvariant();
 
-                if (_value == "null")
+                if (_value?.s == "null")
                 {
                     IsConstant = true;
                     _value = null;
@@ -76,39 +82,39 @@ namespace NTDLS.Katzebase.Engine.Query
 
                 if (_value != null)
                 {
-                    if (_value.StartsWith('\'') && _value.EndsWith('\''))
+                    if (_value.s.StartsWith('\'') && _value.s.EndsWith('\''))
                     {
                         //Handle escape sequences:
-                        _value = _value.Replace("\\'", "\'");
+                        _value = _value.s.Replace("\\'", "\'").toF();
 
-                        _value = value?.Substring(1, _value.Length - 2);
+                        _value = value?.s.Substring(1, _value.s.Length - 2).toF();
                         IsString = true;
                         IsConstant = true;
                     }
                     else
                     {
-                        if (_value.Contains('.') && double.TryParse(_value, out _) == false)
+                        if (_value.s.Contains('.') && double.TryParse(_value.s, out _) == false)
                         {
-                            var parts = _value.Split('.');
+                            var parts = _value.s.Split('.');
                             if (parts.Length != 2)
                             {
-                                throw new KbParserException("Invalid query. Found [" + _value + "], Expected a multi-part condition field.");
+                                throw new KbParserException("Invalid query. Found [" + _value.s + "], Expected a multi-part condition field.");
                             }
 
                             Prefix = parts[0];
-                            _value = parts[1];
+                            _value = parts[1].toF();
                         }
                     }
 
-                    if (_value != null && double.TryParse(_value, out _))
+                    if (_value != null && double.TryParse(_value.s, out _))
                     {
                         IsConstant = true;
                         IsNumeric = true;
                     }
-                    else if (_value != null && _value.Contains(':'))
+                    else if (_value != null && _value.s.Contains(':'))
                     {
                         //Check to see if this is a "between" expression "number:number" e.g. 5:10
-                        var parts = _value.Split(':');
+                        var parts = _value.s.Split(':');
                         if (parts.Length == 2)
                         {
                             if (double.TryParse(parts[0], out _) && double.TryParse(parts[1], out _))

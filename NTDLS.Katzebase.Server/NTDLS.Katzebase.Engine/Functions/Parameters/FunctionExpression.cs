@@ -1,4 +1,6 @@
-﻿namespace NTDLS.Katzebase.Engine.Functions.Parameters
+﻿using fs;
+
+namespace NTDLS.Katzebase.Engine.Functions.Parameters
 {
     internal class FunctionExpression : FunctionParameterBase
     {
@@ -10,7 +12,7 @@
 
         public FunctionExpressionType ExpressionType { get; set; }
 
-        public string Value { get; set; } = string.Empty;
+        public fstring Value { get; set; } = fstring.Empty;
         public List<FunctionParameterBase> Parameters { get; private set; } = new();
     }
 }

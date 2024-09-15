@@ -1,4 +1,6 @@
-﻿namespace NTDLS.Katzebase.Client.Payloads
+﻿using fs;
+
+namespace NTDLS.Katzebase.Client.Payloads
 {
     /// <summary>
     /// KbQueryResult is used to return a field-set and the associated row values.
@@ -37,7 +39,7 @@
         /// <param name="row"></param>
         /// <param name="fieldName"></param>
         /// <returns></returns>
-        public string? RowValue(KbQueryRow row, string fieldName)
+        public fstring? RowValue(KbQueryRow row, string fieldName)
         {
             int fieldIndex = IndexOf(fieldName);
             return row.Values[fieldIndex];
@@ -49,12 +51,12 @@
         /// <param name="row"></param>
         /// <param name="fieldName"></param>
         /// <returns></returns>
-        public string? RowValue(KbQueryRow row, int fieldIndex)
+        public fstring? RowValue(KbQueryRow row, int fieldIndex)
         {
             return row.Values[fieldIndex];
         }
 
-        public void AddRow(List<string?> values)
+        public void AddRow(List<fstring?> values)
         {
             Rows.Add(new KbQueryRow(values));
         }

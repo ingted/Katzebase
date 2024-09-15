@@ -13,11 +13,25 @@ namespace NTDLS.Katzebase.Server
         private readonly RmServer _messageServer;
         private readonly KatzebaseSettings _settings;
 
+        public EngineCore GetCore()
+        {
+            return _core;
+        }
+
         public APIService()
         {
             try
             {
-                string json = File.ReadAllText("appsettings.json");
+                string json;
+                try
+                {
+                    json = File.ReadAllText("appsettings.json");
+
+                } catch
+                {
+                    json = File.ReadAllText(new FileInfo(System.Reflection.Assembly.GetEntryAssembly().Location).DirectoryName + @"\appsettings.json");
+                    
+                }
 
                 var settings = JsonConvert.DeserializeObject<KatzebaseSettings>(json)
                     ?? throw new Exception("Failed to load settings");
