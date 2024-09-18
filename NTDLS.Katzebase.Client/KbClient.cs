@@ -20,7 +20,7 @@ namespace NTDLS.Katzebase.Client
         public delegate void CommunicationExceptionEvent(KbClient sender, KbSessionInfo sessionInfo, Exception ex);
         public event CommunicationExceptionEvent? OnCommunicationException;
 
-        private TimeSpan _queryTimeout = TimeSpan.FromSeconds(30);
+        private TimeSpan _queryTimeout = TimeSpan.FromSeconds(3000);
 
         public TimeSpan QueryTimeout
         {

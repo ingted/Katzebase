@@ -80,6 +80,15 @@ namespace NTDLS.Katzebase.Engine.Interactions.Management
                         PageSize = core.Settings.DefaultDocumentPageSize,
                         DiskPath = Path.Combine(core.Settings.DataRootPath, "Temporary")
                     });
+                    physicalSchemaCatalog.Collection.Add(new PhysicalSchema()
+                    {
+                        Name = "master",
+                        VirtualPath = "master",
+                        IsTemporary = false,
+                        Id = Guid.NewGuid(),
+                        PageSize = core.Settings.DefaultDocumentPageSize,
+                        DiskPath = Path.Combine(core.Settings.DataRootPath, "master")
+                    });
 
                     core.IO.PutJsonNonTracked(Path.Combine(core.Settings.DataRootPath, SchemaCatalogFile), physicalSchemaCatalog);
                     core.IO.PutPBufNonTracked(Path.Combine(core.Settings.DataRootPath, DocumentPageCatalogFile), new PhysicalDocumentPageCatalog());
@@ -101,6 +110,30 @@ namespace NTDLS.Katzebase.Engine.Interactions.Management
                 core.IO.PutJsonNonTracked(Path.Combine(temporarySchemaPath, SchemaCatalogFile), new PhysicalSchemaCatalog());
                 core.IO.PutPBufNonTracked(Path.Combine(temporarySchemaPath, DocumentPageCatalogFile), new PhysicalDocumentPageCatalog());
                 core.IO.PutJsonNonTracked(Path.Combine(temporarySchemaPath, IndexCatalogFile), new PhysicalIndexCatalog());
+
+
+                var masterSchemaPath = Path.Combine(core.Settings.DataRootPath, "master");
+
+                if (!Directory.Exists(masterSchemaPath))
+                {
+                    Directory.CreateDirectory(masterSchemaPath);
+                    core.IO.PutJsonNonTracked(Path.Combine(masterSchemaPath, SchemaCatalogFile), new PhysicalSchemaCatalog());
+                    core.IO.PutPBufNonTracked(Path.Combine(masterSchemaPath, DocumentPageCatalogFile), new PhysicalDocumentPageCatalog());
+                    core.IO.PutJsonNonTracked(Path.Combine(masterSchemaPath, IndexCatalogFile), new PhysicalIndexCatalog());
+                }
+
+                var accountSchemaPath = Path.Combine(core.Settings.DataRootPath, "master", "account");
+
+                if (!Directory.Exists(accountSchemaPath))
+                {
+                    Directory.CreateDirectory(accountSchemaPath);
+                    core.IO.PutJsonNonTracked(Path.Combine(accountSchemaPath, SchemaCatalogFile), new PhysicalSchemaCatalog());
+                    core.IO.PutPBufNonTracked(Path.Combine(accountSchemaPath, DocumentPageCatalogFile), new PhysicalDocumentPageCatalog());
+                    core.IO.PutJsonNonTracked(Path.Combine(accountSchemaPath, IndexCatalogFile), new PhysicalIndexCatalog());
+                }
+
+
+
             }
             catch (Exception ex)
             {

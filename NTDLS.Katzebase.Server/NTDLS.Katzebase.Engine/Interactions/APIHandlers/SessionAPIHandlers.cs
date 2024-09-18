@@ -49,6 +49,9 @@ namespace NTDLS.Katzebase.Engine.Interactions.APIHandlers
                     preLogin = _core.Sessions.CreateSession(Guid.NewGuid(), param.Username, param.ClientName);
 
                     using var transactionReference = _core.Transactions.Acquire(preLogin);
+                    _core.Query.ExecuteNonQuery(preLogin, "create schema master");
+                    _core.Query.ExecuteNonQuery(preLogin, "create schema master:account");
+                    _core.Query.ExecuteNonQuery(preLogin, "insert into master:account (\r\nUsername = 'admin', PasswordHash = 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'\r\n)");
 
                     var account = _core.Query.ExecuteQuery<Account>(preLogin,
                         $"SELECT Username, PasswordHash FROM Master:Account WHERE Username = @Username AND PasswordHash = @PasswordHash",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1DlJDnLIWOo=",
+  "dgSpecHash": "cpZeV/v4XEg=",
   "success": true,
-  "projectFilePath": "G:\\git\\NTDLS.Katzebase.Server\\TestUseWithApi\\TestUseWithApi.csproj",
+  "projectFilePath": "G:\\coldfar_py\\sharftrade9\\Libs3\\Katzebase\\NTDLS.Katzebase.Server\\TestUseWithApi\\TestUseWithApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Administrator\\.nuget\\packages\\antlr4.runtime.standard\\4.13.1\\antlr4.runtime.standard.4.13.1.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\coreclr-ncalc\\3.1.253\\coreclr-ncalc.3.1.253.nupkg.sha512",

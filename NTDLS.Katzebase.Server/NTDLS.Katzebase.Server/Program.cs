@@ -6,6 +6,21 @@ using Topshelf.ServiceConfigurators;
 
 namespace NTDLS.Katzebase.Server
 {
+    public static class KatzeFsi
+    {
+        static APIService? s = null;
+        public static void StartService()
+        {
+            var s = new APIService();
+
+            s.Start();
+        }
+
+        public static void StopService()
+        {
+            s?.Stop();
+        }
+    }
     public class Program
     {
         public class KatzebaseService
