@@ -1,0 +1,46 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <TargetFrameworks>net9.0</TargetFrameworks>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <Title>NTDLS.Semaphore</Title>
+    <Copyright>Copyright © 2024 NetworkDLS</Copyright>
+    <Description>
+      Provides various classes to ensure sequential access to variables or sections of code in multi-threaded environments.
+    </Description>
+    <PackageProjectUrl>https://github.com/NTDLS/NTDLS.Semaphore</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/NTDLS/NTDLS.Semaphore</RepositoryUrl>
+    <PackageTags>threading;critical-section;semaphore;parallel-execution;sequential-execution</PackageTags>
+    <PackageReleaseNotes>
+		Replaced OptimisticSemaphore internals with ReaderWriterLockSlim.
+		Added read-only write upgradable optimistic locks.
+	</PackageReleaseNotes>
+    <RepositoryType>git</RepositoryType>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Authors>NetworkDLS</Authors>
+    <Company>NetworkDLS</Company>
+    <version>3.4.2</version>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <IncludeSymbols>True</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <PackageIcon>Logo.png</PackageIcon>
+    <ApplicationIcon>NTDLS.Semaphore.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup Condition=" '$(BuildingPackage)' == 'true' ">
+    <Content Include="NTDLS.Semaphore.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\Logo.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+</Project>

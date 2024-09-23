@@ -1,0 +1,50 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <UseWindowsForms>true</UseWindowsForms>
+    <TargetFrameworks>net6.0-windows;net7.0-windows;net8.0-windows</TargetFrameworks>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <IncludeSymbols>True</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <ApplicationIcon>Logo.ico</ApplicationIcon>
+    <Title>NTDLS.WinFormsHelpers</Title>
+    <Authors>NetworkDLS</Authors>
+    <Company>NetworkDLS</Company>
+    <Product>NTDLS.WinFormsHelpers</Product>
+    <Copyright>Copyright © 2024 NetworkDLS</Copyright>
+    <PackageProjectUrl>https://github.com/NTDLS/NTDLS.WinFormsHelpers</PackageProjectUrl>
+    <PackageIcon>Logo.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/NTDLS/NTDLS.WinFormsHelpers</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>winforms;helpers;invoke;validation</PackageTags>
+    <PackageReleaseNotes>
+      Removed non-winforms functions to NTDLS.Helpers.
+      Added NTDLS.Helpers nuget for non-winforms cross-functions.
+	  Documentation.
+    </PackageReleaseNotes>
+    <Version>1.2.6</Version>
+    <EnableNETAnalyzers>False</EnableNETAnalyzers>
+    <Description>Helpers for working with WinForms. Getting and setting values, simplifications for invoke, etc.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\Images\Logo.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NTDLS.Helpers" Version="1.2.8" />
+  </ItemGroup>
+
+</Project>
