@@ -6,6 +6,10 @@ using NTDLS.ReliableMessaging;
 
 namespace NTDLS.Katzebase.Engine.Interactions.APIHandlers
 {
+    public class MyType {
+        public int Num { get; set; }
+        public string? Str { get; set; }
+    }
     /// <summary>
     /// Public class methods for handling API requests related to sessions.
     /// </summary>
@@ -62,8 +66,12 @@ namespace NTDLS.Katzebase.Engine.Interactions.APIHandlers
 
 
                     //_core.Query.ExecuteNonQuery(preLogin, "insert into master:account (\r\nUsername = 'admin', PasswordHash = 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'\r\n)");
-                    _core.Query.ExecuteNonQuery(preLogin, "insert into master:account (Username, PasswordHash)\r\nvalues('admin', 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855')");
-                    _core.Transactions.Commit(preLogin);
+                    //.Query.ExecuteNonQuery(preLogin, "insert into master:account (Username, PasswordHash)\r\nvalues('admin', 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855')");
+                    //_core.Transactions.Commit(preLogin);
+
+                    //var myType = _core.Query.ExecuteQuery<MyType>(preLogin,
+                    //    $"SELECT 1, 'mine'").FirstOrDefault();
+
                     var account = _core.Query.ExecuteQuery<Account>(preLogin,
                         $"SELECT Username, PasswordHash FROM Master:Account WHERE Username = @Username AND PasswordHash = @PasswordHash",
                         new

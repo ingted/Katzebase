@@ -42,7 +42,9 @@
         {
             Undefined,
             String,
-            Numeric
+            Numeric,
+            Array,
+            Tuple
         }
 
         public enum KbTransactionWarning

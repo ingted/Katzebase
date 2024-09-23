@@ -56,6 +56,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\fstring\fstring.fsproj" />
     <ProjectReference Include="..\NTDLS.Helpers\NTDLS.Helpers\NTDLS.Helpers.csproj" />
     <ProjectReference Include="..\NTDLS.ReliableMessaging\NTDLS.ReliableMessaging\NTDLS.ReliableMessaging.csproj" />
   </ItemGroup>

@@ -1,4 +1,5 @@
-﻿using NTDLS.Katzebase.Client.Exceptions;
+﻿using fs;
+using NTDLS.Katzebase.Client.Exceptions;
 using NTDLS.Katzebase.Engine.Atomicity;
 using NTDLS.Katzebase.Engine.Parsers.Query.Fields;
 using NTDLS.Katzebase.Shared;
@@ -126,65 +127,65 @@ namespace NTDLS.Katzebase.Engine.Parsers.Query.WhereAndJoinConditions
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool? IsMatchGreater(Transaction transaction, double? left, double? right)
+        public static bool? IsMatchGreater(Transaction transaction, fstring? left, fstring? right)
         {
             if (left != null && right != null)
             {
-                return left > right;
+                return fstring.Compare(left, right) == 1;
             }
             transaction.AddWarning(KbTransactionWarning.ResultDisqualifiedByNullValue);
             return null;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool? IsMatchLesser(Transaction transaction, double? left, double? right)
+        public static bool? IsMatchLesser(Transaction transaction, fstring? left, fstring? right)
         {
             if (left != null && right != null)
             {
-                return left < right;
+                return fstring.Compare(left, right) == -1;
             }
             transaction.AddWarning(KbTransactionWarning.ResultDisqualifiedByNullValue);
             return null;
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool? IsMatchGreater(Transaction transaction, string? left, string? right)
-        {
-            if (left != null && right != null && double.TryParse(left, out var iLeft))
-            {
-                if (double.TryParse(right, out var iRight))
-                {
-                    return iLeft > iRight;
-                }
+        //[MethodImpl(MethodImplOptions.AggressiveInlining)]
+        //public static bool? IsMatchGreater(Transaction transaction, string? left, string? right)
+        //{
+        //    if (left != null && right != null && double.TryParse(left, out var iLeft))
+        //    {
+        //        if (double.TryParse(right, out var iRight))
+        //        {
+        //            return iLeft > iRight;
+        //        }
 
-            }
-            transaction.AddWarning(KbTransactionWarning.ResultDisqualifiedByNullValue);
-            return null;
-        }
+        //    }
+        //    transaction.AddWarning(KbTransactionWarning.ResultDisqualifiedByNullValue);
+        //    return null;
+        //}
+
+        //[MethodImpl(MethodImplOptions.AggressiveInlining)]
+        //public static bool? IsMatchLesser(Transaction transaction, string? left, string? right)
+        //{
+        //    if (left != null && right != null && double.TryParse(left, out var iLeft))
+        //    {
+        //        if (double.TryParse(right, out var iRight))
+        //        {
+        //            return iLeft < iRight;
+        //        }
+        //    }
+        //    transaction.AddWarning(KbTransactionWarning.ResultDisqualifiedByNullValue);
+        //    return null;
+        //}
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool? IsMatchLesser(Transaction transaction, string? left, string? right)
-        {
-            if (left != null && right != null && double.TryParse(left, out var iLeft))
-            {
-                if (double.TryParse(right, out var iRight))
-                {
-                    return iLeft < iRight;
-                }
-            }
-            transaction.AddWarning(KbTransactionWarning.ResultDisqualifiedByNullValue);
-            return null;
-        }
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool? IsMatchLike(Transaction transaction, string? input, string? pattern)
+        public static bool? IsMatchLike(Transaction transaction, fstring? input, fstring? pattern)
         {
             if (input == null || pattern == null)
             {
                 transaction.AddWarning(KbTransactionWarning.ResultDisqualifiedByNullValue);
                 return null;
             }
-            return input.IsLike(pattern);
+            return input.s.IsLike(pattern.s);
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -231,13 +232,13 @@ namespace NTDLS.Katzebase.Engine.Parsers.Query.WhereAndJoinConditions
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool? IsMatchEqual(Transaction transaction, string? left, string? right)
+        public static bool? IsMatchEqual(Transaction transaction, fstring? left, fstring? right)
         {
-            return left == right;
+            return fstring.Compare(left, right) == 0;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool IsMatch(Transaction transaction, string? leftString, LogicalQualifier logicalQualifier, string? rightString)
+        public static bool IsMatch(Transaction transaction, fstring? leftString, LogicalQualifier logicalQualifier, fstring? rightString)
         {
             if (logicalQualifier == LogicalQualifier.Equals)
             {

@@ -1,4 +1,5 @@
-﻿using NTDLS.Helpers;
+﻿using fs;
+using NTDLS.Helpers;
 using NTDLS.Katzebase.Client.Exceptions;
 using NTDLS.Katzebase.Client.Types;
 using NTDLS.Katzebase.Engine.Atomicity;
@@ -758,7 +759,7 @@ namespace NTDLS.Katzebase.Engine.QueryProcessing.Searchers
         /// Collapses all left-and-right condition values, compares them, and fills in the expression variables with the comparison result.
         /// </summary>
         private static void SetExpressionParameters(DocumentLookupOperation.Instance instance,
-            NCalc.Expression expression, ConditionCollection givenConditions, KbInsensitiveDictionary<string?> auxiliaryFields)
+            NCalc.Expression expression, ConditionCollection givenConditions, KbInsensitiveDictionary<fstring, fstring?> auxiliaryFields)
         {
             SetExpressionParametersRecursive(givenConditions.Collection);
 

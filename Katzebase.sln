@@ -27,6 +27,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NTDLS.Persistence", "NTDLS.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NTDLS.WinFormsHelpers", "NTDLS.WinFormsHelpers\NTDLS.WinFormsHelpers\NTDLS.WinFormsHelpers.csproj", "{0F172970-0A6F-4D7F-A800-224A0FFEAA57}"
 EndProject
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "fstring", "fstring\fstring.fsproj", "{82F11AA4-1644-4A53-AAA3-11E284220272}"
+EndProject
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "ProtoBuf.FSharp", "protobuf-net-fsharp\src\ProtoBuf.FSharp\ProtoBuf.FSharp.fsproj", "{BC58DCF9-FB38-49DC-B5C8-0AC905B4DB7E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -81,6 +85,14 @@ Global
 		{0F172970-0A6F-4D7F-A800-224A0FFEAA57}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0F172970-0A6F-4D7F-A800-224A0FFEAA57}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0F172970-0A6F-4D7F-A800-224A0FFEAA57}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82F11AA4-1644-4A53-AAA3-11E284220272}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82F11AA4-1644-4A53-AAA3-11E284220272}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82F11AA4-1644-4A53-AAA3-11E284220272}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82F11AA4-1644-4A53-AAA3-11E284220272}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC58DCF9-FB38-49DC-B5C8-0AC905B4DB7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC58DCF9-FB38-49DC-B5C8-0AC905B4DB7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC58DCF9-FB38-49DC-B5C8-0AC905B4DB7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC58DCF9-FB38-49DC-B5C8-0AC905B4DB7E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

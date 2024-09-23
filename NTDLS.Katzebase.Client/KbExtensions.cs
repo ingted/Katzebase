@@ -1,4 +1,5 @@
-﻿using NTDLS.Katzebase.Client.Types;
+﻿using fs;
+using NTDLS.Katzebase.Client.Types;
 
 namespace NTDLS.Katzebase.Client
 {
@@ -60,13 +61,13 @@ namespace NTDLS.Katzebase.Client
                     var rawValue = prop.GetValue(parameters);
                     if (rawValue is string)
                     {
-                        result.Add('@' + prop.Name, new KbConstant(rawValue?.ToString(), KbConstants.KbBasicDataType.String));
+                        result.Add('@' + prop.Name, new KbConstant(fstring.NewS(rawValue?.ToString()), KbConstants.KbBasicDataType.String));
                     }
                     else
                     {
                         if (rawValue == null || double.TryParse(rawValue?.ToString(), out _))
                         {
-                            result.Add('@' + prop.Name, new KbConstant(rawValue?.ToString(), KbConstants.KbBasicDataType.Numeric));
+                            result.Add('@' + prop.Name, new KbConstant(fstring.NewS(rawValue?.ToString()), KbConstants.KbBasicDataType.Numeric));
                         }
                         else
                         {
@@ -98,13 +99,13 @@ namespace NTDLS.Katzebase.Client
                     var rawValue = prop.GetValue(parameters);
                     if (rawValue is string)
                     {
-                        result.Add('@' + prop.Name, new KbConstant(rawValue?.ToString(), KbConstants.KbBasicDataType.String));
+                        result.Add('@' + prop.Name, new KbConstant(fstring.NewS(rawValue?.ToString()), KbConstants.KbBasicDataType.String));
                     }
                     else
                     {
                         if (rawValue == null || double.TryParse(rawValue?.ToString(), out _))
                         {
-                            result.Add('@' + prop.Name, new KbConstant(rawValue?.ToString(), KbConstants.KbBasicDataType.Numeric));
+                            result.Add('@' + prop.Name, new KbConstant(fstring.NewS(rawValue?.ToString()), KbConstants.KbBasicDataType.Numeric));
                         }
                         else
                         {
@@ -135,13 +136,13 @@ namespace NTDLS.Katzebase.Client
             {
                 if (parameter.Value is string)
                 {
-                    result.Add('@' + parameter.Key, new KbConstant(parameter.Value?.ToString(), KbConstants.KbBasicDataType.String));
+                    result.Add('@' + parameter.Key, new KbConstant(fstring.NewS(parameter.Value.ToString()), KbConstants.KbBasicDataType.String));
                 }
                 else
                 {
                     if (parameter.Value == null || double.TryParse(parameter.Value?.ToString(), out _))
                     {
-                        result.Add('@' + parameter.Key, new KbConstant(parameter.Value?.ToString(), KbConstants.KbBasicDataType.Numeric));
+                        result.Add('@' + parameter.Key, new KbConstant(fstring.NewS(parameter.Value.ToString()), KbConstants.KbBasicDataType.Numeric));
                     }
                     else
                     {
