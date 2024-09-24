@@ -1,5 +1,8 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using fs;
+using Newtonsoft.Json.Linq;
+using NTDLS.Katzebase.Client.Payloads;
 using NTDLS.Katzebase.Client.Payloads.RoundTrip;
+using NTDLS.Katzebase.Client.Types;
 using NTDLS.Katzebase.Engine.Interactions.Management;
 using NTDLS.Katzebase.Engine.Sessions;
 using NTDLS.ReliableMessaging;
@@ -58,8 +61,20 @@ namespace NTDLS.Katzebase.Engine.Interactions.APIHandlers
                     _core.Query.ExecuteNonQuery(preLogin, "create schema master:account");
                     _core.Transactions.Commit(preLogin);
 
-                    
+
+
+
                     using var transactionReference = _core.Transactions.Acquire(preLogin);
+
+                    var d = new KbInsensitiveDictionary<fstring?>();
+
+                    d.Add("poorguy", fstring.NewT("ttc", fstring.NewA(new fstring[] { fstring.NewS("OGC") })));
+
+                    _core.Documents.InsertDocument(
+                        transactionReference.Transaction,
+                        "mySch",
+                        (new KbDocument(d)).Content
+                        );
 
                     //transactionReference.Commit();
 
