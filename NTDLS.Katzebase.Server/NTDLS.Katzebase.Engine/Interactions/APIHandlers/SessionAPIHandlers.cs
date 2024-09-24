@@ -66,7 +66,7 @@ namespace NTDLS.Katzebase.Engine.Interactions.APIHandlers
 
 
                     //_core.Query.ExecuteNonQuery(preLogin, "insert into master:account (\r\nUsername = 'admin', PasswordHash = 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'\r\n)");
-                    //.Query.ExecuteNonQuery(preLogin, "insert into master:account (Username, PasswordHash)\r\nvalues('admin', 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855')");
+                    //_core.Query.ExecuteNonQuery(preLogin, "insert into master:account (Username, PasswordHash)\r\nvalues('admin', 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855')");
                     //_core.Transactions.Commit(preLogin);
 
                     //var myType = _core.Query.ExecuteQuery<MyType>(preLogin,

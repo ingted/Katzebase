@@ -4,6 +4,9 @@ open System
 open System.Collections
 open System.Collections.Generic
 
+
+
+
 [<ProtoBuf.ProtoContract>]
 type fstring =
 | S of string
@@ -23,23 +26,30 @@ type fstring =
         compare a1l a2l
 
     static member Compare (x: fstring, y: fstring): int =
-        match (x, y) with
-        | (D d1, D d2) -> Decimal.Compare(decimal d1, decimal d2) // 直接使用 decimal 的比较功能
-        | (S s1, S s2) -> String.Compare(s1, s2, StringComparison.OrdinalIgnoreCase)
-        | (A arr1, A arr2) ->
-            let lenComp = fstring.compareLength arr1 arr2
-            if lenComp <> 0 then lenComp
-            else fstring.compareArrays arr1 arr2
-        | (T (tag1, f1), T (tag2, f2)) ->
-            let tagComp = String.Compare(tag1, tag2, StringComparison.OrdinalIgnoreCase)
-            if tagComp <> 0 then tagComp
-            else fstring.Compare (f1, f2)
-        | (D _, _) -> -1 // 所有 D 与其他类型比较时的默认顺序
-        | (_, D _) -> 1  // 所有其他类型与 D 比较时的默认顺序
-        | (S _, (A _ | T _)) -> -1
-        | ((A _ | T _), S _) -> 1
-        | (A _, T _) -> -1
-        | (T _, A _) -> 1
+        match box x, box y with
+        | null, null -> 0
+        | _, null -> 
+            if x = S null then 0 else 1
+        | null, _ ->
+            if y = S null then 0 else -1
+        | _ ->
+            match (x, y) with
+            | (D d1, D d2) -> Decimal.Compare(decimal d1, decimal d2) // 直接使用 decimal 的比较功能
+            | (S s1, S s2) -> String.Compare(s1, s2, StringComparison.OrdinalIgnoreCase)
+            | (A arr1, A arr2) ->
+                let lenComp = fstring.compareLength arr1 arr2
+                if lenComp <> 0 then lenComp
+                else fstring.compareArrays arr1 arr2
+            | (T (tag1, f1), T (tag2, f2)) ->
+                let tagComp = String.Compare(tag1, tag2, StringComparison.OrdinalIgnoreCase)
+                if tagComp <> 0 then tagComp
+                else fstring.Compare (f1, f2)
+            | (D _, _) -> -1 // 所有 D 与其他类型比较时的默认顺序
+            | (_, D _) -> 1  // 所有其他类型与 D 比较时的默认顺序
+            | (S _, (A _ | T _)) -> -1
+            | ((A _ | T _), S _) -> 1
+            | (A _, T _) -> -1
+            | (T _, A _) -> 1
 
     interface IComparer<fstring> with
         override this.Compare(x: fstring, y: fstring): int =
@@ -85,8 +95,35 @@ type fstring =
     static member IsNull (o:fstring) = 
         if box o = null || o = fstring.ANull || o = fstring.SNull then true else false
 
-
 open System.Runtime.CompilerServices
+
+[<Extension>]
+module FS =
+    let mapper = new Dictionary<Type, fstring -> obj>()
+
+    let _ =
+        mapper.Add(
+            typeof<string>, (fun (S s) -> box s)
+        )
+    let _ =
+        mapper.Add(
+            typeof<double>, (fun (D d) -> box d)
+        )
+
+    let _ =
+        mapper.Add(
+            typeof<fstring []>, (fun (A a) -> box a)
+        )
+
+    let _ =
+        mapper.Add(
+            typeof<string * fstring>, (fun (T (k, v)) -> box (KeyValuePair.Create(k, v)))
+        )
+
+    [<Extension>]
+    let toType (this: fstring, t:Type) = mapper[t] this
+
+
 
 [<Extension>]
 module ExtensionsString =
@@ -96,6 +133,11 @@ module ExtensionsString =
 module ExtensionsDecimal =
     [<Extension>]
     let toF(d : decimal) = D (double d)
+[<Extension>]
+module ExtensionsDouble =
+    [<Extension>]
+    let toF(d : double) = D d
+
 [<Extension>]
 module ExtensionsInt =
     [<Extension>]

@@ -14,6 +14,11 @@ namespace NTDLS.Katzebase.Client.Types
             DataType = dataType;
         }
 
+        public KbConstant()
+        {
+            Value = null;
+            DataType = KbBasicDataType.Undefined;
+        }
         public KbConstant(string value)
         {
             Value = fstring.NewS(value);

@@ -32,7 +32,8 @@ namespace NTDLS.Katzebase.Client
                         }
                         else
                         {
-                            property.SetValue(obj, Convert.ChangeType(value, Nullable.GetUnderlyingType(property.PropertyType) ?? property.PropertyType));
+                            //property.SetValue(obj, Convert.ChangeType(value, Nullable.GetUnderlyingType(property.PropertyType) ?? property.PropertyType));
+                            property.SetValue(obj, value.toType(Nullable.GetUnderlyingType(property.PropertyType) ?? property.PropertyType));
                         }
                     }
                 }

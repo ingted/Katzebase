@@ -46,15 +46,15 @@ namespace NTDLS.Katzebase.Engine.QueryProcessing
         {
             if (queryField is QueryFieldExpressionNumeric expressionNumeric)
             {
-                return CollapseScalerFunctionNumericParameter(transaction, query, fieldCollection, auxiliaryFields, expressionNumeric.FunctionDependencies, expressionNumeric.Value);
+                return CollapseScalerFunctionNumericParameter(transaction, query, fieldCollection, auxiliaryFields, expressionNumeric.FunctionDependencies, expressionNumeric.Value.s);
             }
             else if (queryField is QueryFieldExpressionString expressionString)
             {
-                return CollapseScalerFunctionStringParameter(transaction, query, fieldCollection, auxiliaryFields, expressionString.FunctionDependencies, expressionString.Value);
+                return CollapseScalerFunctionStringParameter(transaction, query, fieldCollection, auxiliaryFields, expressionString.FunctionDependencies, expressionString.Value.s);
             }
             else if (queryField is QueryFieldDocumentIdentifier documentIdentifier)
             {
-                if (auxiliaryFields.TryGetValue(fstring.NewS(documentIdentifier.Value), out var exactAuxiliaryValue))
+                if (auxiliaryFields.TryGetValue(documentIdentifier.Value, out var exactAuxiliaryValue))
                 {
                     return exactAuxiliaryValue ?? fstring.SEmpty; //TODO: Should auxiliaryFields really allow NULL values?
                 }
@@ -66,11 +66,11 @@ namespace NTDLS.Katzebase.Engine.QueryProcessing
             }
             else if (queryField is QueryFieldConstantNumeric constantNumeric)
             {
-                return query.Batch.GetLiteralValue(constantNumeric.Value);
+                return query.Batch.GetLiteralValue(constantNumeric.Value.s);
             }
             else if (queryField is QueryFieldConstantString constantString)
             {
-                return query.Batch.GetLiteralValue(constantString.Value);
+                return query.Batch.GetLiteralValue(constantString.Value.s);
             }
             else if (queryField is QueryFieldCollapsedValue collapsedValue)
             {
@@ -114,11 +114,11 @@ namespace NTDLS.Katzebase.Engine.QueryProcessing
         {
             if (expression.FieldExpression is QueryFieldExpressionNumeric expressionNumeric)
             {
-                return CollapseScalerFunctionNumericParameter(transaction, query, fieldCollection, auxiliaryFields, expressionNumeric.FunctionDependencies, expressionNumeric.Value);
+                return CollapseScalerFunctionNumericParameter(transaction, query, fieldCollection, auxiliaryFields, expressionNumeric.FunctionDependencies, expressionNumeric.Value.s);
             }
             else if (expression.FieldExpression is QueryFieldExpressionString expressionString)
             {
-                return CollapseScalerFunctionStringParameter(transaction, query, fieldCollection, auxiliaryFields, expressionString.FunctionDependencies, expressionString.Value);
+                return CollapseScalerFunctionStringParameter(transaction, query, fieldCollection, auxiliaryFields, expressionString.FunctionDependencies, expressionString.Value.s);
             }
             else
             {
@@ -152,7 +152,7 @@ namespace NTDLS.Katzebase.Engine.QueryProcessing
                     if (fieldCollection.DocumentIdentifiers.TryGetValue(token, out var fieldIdentifier))
                     {
                         //Resolve the field identifier to a value.
-                        if (auxiliaryFields.TryGetValue(fstring.NewS(fieldIdentifier.Value), out var textValue))
+                        if (auxiliaryFields.TryGetValue(fieldIdentifier.Value, out var textValue))
                         {
                             textValue.EnsureNotNull();
                             string mathVariable = $"v{variableNumber++}";
@@ -246,7 +246,7 @@ namespace NTDLS.Katzebase.Engine.QueryProcessing
                     if (fieldCollection.DocumentIdentifiers.TryGetValue(token, out var fieldIdentifier))
                     {
                         //Resolve the field identifier to a value.
-                        if (auxiliaryFields.TryGetValue(fstring.NewS(fieldIdentifier.Value), out var textValue))
+                        if (auxiliaryFields.TryGetValue(fieldIdentifier.Value, out var textValue))
                         {
                             sb.Append(textValue);
                         }

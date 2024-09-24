@@ -25,6 +25,13 @@ namespace NTDLS.Katzebase.Shared
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool Is(this fstring value, string? otherValue)
+        {
+            return value.s == otherValue;
+        }
+
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsNot(this string value, string? otherValue)
         {
             return !string.Equals(value, otherValue, StringComparison.InvariantCultureIgnoreCase);

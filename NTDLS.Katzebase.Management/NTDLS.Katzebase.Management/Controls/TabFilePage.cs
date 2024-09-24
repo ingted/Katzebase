@@ -6,7 +6,7 @@ using NTDLS.Katzebase.Client.Payloads;
 using NTDLS.Katzebase.Management.Classes;
 using System.Text;
 using static NTDLS.Katzebase.Client.KbConstants;
-
+using fs;
 namespace NTDLS.Katzebase.Management.Controls
 {
     internal class TabFilePage : TabPage, IDisposable
@@ -649,15 +649,15 @@ namespace NTDLS.Katzebase.Management.Controls
                     int maxRowsToLoad = Program.Settings.MaximumRows;
                     foreach (var row in result.Rows)
                     {
-                        var rowValues = new List<string>();
+                        var rowValues = new List<fstring>();
 
                         for (int fieldIndex = 0; fieldIndex < result.Fields.Count; fieldIndex++)
                         {
                             var fieldValue = row.Values[fieldIndex];
-                            rowValues.Add(fieldValue ?? string.Empty);
+                            rowValues.Add(fieldValue ?? fstring.SEmpty);
                         }
 
-                        var item = new ListViewItem(rowValues.ToArray());
+                        var item = new ListViewItem(rowValues.Select(s => s.s).ToArray());
 
                         outputGrid.Items.Add(item);
 

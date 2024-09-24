@@ -24,6 +24,15 @@ namespace NTDLS.Katzebase.Engine.Parsers.Tokens
             return token;
         }
 
+        public fstring? ResolveLiteral(string token)
+        {
+            if (Literals.TryGetValue(token, out var literal))
+            {
+                return literal.Value;
+            }
+            return fstring.NewS(token);
+        }
+
         /// <summary>
         /// Replaces text literals with tokens to prepare the query for parsing.
         /// </summary>

@@ -300,7 +300,7 @@ namespace NTDLS.Katzebase.Engine.Interactions.Management
                     if (condition.Qualifier == LogicalQualifier.Equals)
                     {
                         //For join operations, check the keyValues for the raw value to lookup.
-                        if (keyValues?.TryGetValue(condition.Right.Value, out fstring? keyValue) != true)
+                        if (keyValues?.TryGetValue(condition.Right.Value.s, out fstring? keyValue) != true)
                         {
                             if (condition.Right is QueryFieldCollapsedValue collapsedValue)
                             {
@@ -520,7 +520,7 @@ namespace NTDLS.Katzebase.Engine.Interactions.Management
             List<PhysicalIndexLeaf> workingPhysicalIndexLeaves, QueryFieldCollection fieldCollection, KbInsensitiveDictionary<fstring, fstring?>? auxiliaryFields)
         {
             //For join operations, check the keyValues for the raw value to lookup.
-            if (auxiliaryFields?.TryGetValue(fstring.NewS(condition.Right.Value), out fstring? keyValue) != true)
+            if (auxiliaryFields?.TryGetValue(condition.Right.Value, out fstring? keyValue) != true)
             {
                 if (condition.Right is QueryFieldCollapsedValue collapsedValue)
                 {
@@ -568,11 +568,11 @@ namespace NTDLS.Katzebase.Engine.Interactions.Management
                                         .Select(s => s.Value)).ToList(),
                 LogicalQualifier.Between => workingPhysicalIndexLeaves
                                         .SelectMany(o => o.Children
-                                        .Where(w => ConditionEntry.IsMatchBetween(transaction, w.Key, keyValue) == true)
+                                        .Where(w => ConditionEntry.IsMatchBetween(transaction, w.Key.s, keyValue.s) == true)
                                         .Select(s => s.Value)).ToList(),
                 LogicalQualifier.NotBetween => workingPhysicalIndexLeaves
                                         .SelectMany(o => o.Children
-                                        .Where(w => ConditionEntry.IsMatchBetween(transaction, w.Key, keyValue) == false)
+                                        .Where(w => ConditionEntry.IsMatchBetween(transaction, w.Key.s, keyValue.s) == false)
                                         .Select(s => s.Value)).ToList(),
                 _ => throw new KbNotImplementedException($"Logical qualifier has not been implemented for indexing: {condition.Qualifier}"),
             };
@@ -777,7 +777,7 @@ namespace NTDLS.Katzebase.Engine.Interactions.Management
             try
             {
                 var documentField = physicalIndex.Attributes[0].Field;
-                document.Elements.TryGetValue(documentField.EnsureNotNull(), out string? value);
+                document.Elements.TryGetValue(documentField.EnsureNotNull(), out fstring? value);
 
                 uint indexPartition = physicalIndex.ComputePartition(value);
 
@@ -902,7 +902,7 @@ namespace NTDLS.Katzebase.Engine.Interactions.Management
                         break;
                     }
 
-                    if (result.Leaf.Children.TryGetValue(token.s, out PhysicalIndexLeaf? value))
+                    if (result.Leaf.Children.TryGetValue(token, out PhysicalIndexLeaf? value))
                     {
                         result.ExtentLevel++;
                         result.Leaf = value; //Move one level lower in the extent tree.
@@ -1164,7 +1164,7 @@ namespace NTDLS.Katzebase.Engine.Interactions.Management
                 try
                 {
                     var documentField = instance.Operation.PhysicalIndex.Attributes[0].Field;
-                    physicalDocument.Elements.TryGetValue(documentField.EnsureNotNull(), out string? value);
+                    physicalDocument.Elements.TryGetValue(documentField.EnsureNotNull(), out fstring? value);
 
                     uint indexPartition = instance.Operation.PhysicalIndex.ComputePartition(value);
 

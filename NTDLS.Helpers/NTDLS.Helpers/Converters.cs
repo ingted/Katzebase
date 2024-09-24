@@ -1,4 +1,5 @@
-﻿namespace NTDLS.Helpers
+﻿using fs;
+namespace NTDLS.Helpers
 {
     /// <summary>
     /// Helper functions for type conversions.
@@ -10,6 +11,16 @@
         /// </summary>
         public static T ConvertTo<T>(string? value, T defaultValue)
             => ConvertToNullable<T>(value) ?? defaultValue;
+
+        public static T ConvertTo<T>(fstring? value)
+            => ConvertToNullable<T>(value);
+
+
+        public static T ConvertTo<T>(fstring? value, T defaultValue)
+            => ConvertToNullable<T>(value.s) ?? defaultValue;
+
+        public static T? ConvertToNullable<T>(fstring? value)
+            => ConvertToNullable<T>(value.s);
 
         /// <summary>
         /// Makes a best effort conversion from a string to the given type.

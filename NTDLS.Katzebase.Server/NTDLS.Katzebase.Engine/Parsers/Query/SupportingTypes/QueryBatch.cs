@@ -18,12 +18,12 @@ namespace NTDLS.Katzebase.Engine.Parsers.Query.SupportingTypes
             {
                 return literal.Value;
             }
-            else return value;
+            else return fstring.NewS(value);
         }
 
         public fstring? GetLiteralValue(fstring value, out KbBasicDataType outDataType)
         {
-            if (Literals.TryGetValue(value, out var literal))
+            if (Literals.TryGetValue(value.s, out var literal))
             {
                 outDataType = KbBasicDataType.String;
                 return literal.Value;
