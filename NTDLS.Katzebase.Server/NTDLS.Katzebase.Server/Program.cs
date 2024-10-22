@@ -135,6 +135,7 @@ namespace NTDLS.Katzebase.Server
                 x.SetDisplayName("Katzebase Service");
                 x.SetServiceName("Katzebase");
             });
+
         }
     }
 }

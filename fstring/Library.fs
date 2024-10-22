@@ -4,6 +4,7 @@ open System
 open System.Collections
 open System.Collections.Generic
 
+[<ProtoBuf.ProtoContract>]
 type fstring =
 | S of string
 | D of double
@@ -17,7 +18,9 @@ type fstring =
         |> Option.defaultValue 0
 
     static member compareLength (arr1: fstring array) (arr2: fstring array): int =
-        compare (arr1.Length) (arr2.Length)
+        let a1l = if arr1 = null then 0 else arr1.Length
+        let a2l = if arr2 = null then 0 else arr2.Length
+        compare a1l a2l
     static member Compare (x: fstring, y: fstring): int =
         match (x, y) with
         | (D d1, D d2) -> Decimal.Compare(decimal d1, decimal d2) // 直接使用 decimal 的比较功能
@@ -54,17 +57,31 @@ type fstring =
         | _ -> failwith "Not fstring.D."
     member this.ToLowerInvariant () =
         match this with
+        | S "" -> fstring.SNull
         | S s -> s.ToLowerInvariant() |> S
         | _ -> failwith "Not fstring.S."
 
 
 
-    static member fromStringArr (sArr) =
+    static member aFromStringArr (sArr) =
         sArr
         |> Array.map S
         |> A
-    static member Empty = S ""
-    static member IsNullOrEmpty (o:fstring) = if box o = null || o = fstring.Empty then true else false
+    static member fromStringArr (sArr) =
+        sArr
+        |> Array.map S
+        
+    static member val SEmpty        = S ""                          with get
+    static member val AEmpty        = A [||]                        with get
+    static member val SNull         = S null                        with get
+    static member val ANull         = A null                        with get
+    static member val Unassigned    = Unchecked.defaultof<fstring>  with get
+    
+    
+    static member SIsNullOrEmpty (o:fstring) = if box o = null || o = fstring.SEmpty || o = fstring.SNull then true else false
+    static member AIsNullOrEmpty (o:fstring) = if box o = null || o = fstring.AEmpty || o = fstring.ANull then true else false
+    static member IsNull (o:fstring) = 
+        if box o = null || o = fstring.ANull || o = fstring.SNull then true else false
 
 
 open System.Runtime.CompilerServices
@@ -86,12 +103,20 @@ module ExtensionsInt =
 module PB =
     open ProtoBuf.Meta
     open ProtoBuf.FSharp
-    let pbModel = 
-        RuntimeTypeModel.Default
+    let pbModel = //lazy (
+        printfn "???????????????????????????????????????????????????????????????"
+        RuntimeTypeModel.Create("???")
         |> Serialiser.registerUnionIntoModel<fstring> 
+        //
 
-    let serializeF (ms, o) =
-        Serialiser.serialise pbModel ms o
+    let serializeFBase m (ms, o) =
+        printfn "[serializeF] type: %s, %A" (o.GetType().Name) o
+        Serialiser.serialise m ms o
 
-    let deserializeF<'T> ms =
-        Serialiser.deserialise<'T> pbModel ms
+    let deserializeFBase<'T> m ms =
+        printfn "[deserializeF] 'T: %s" typeof<'T>.Name
+        Serialiser.deserialise<'T> m ms
+
+    let serializeF (ms, o) = serializeFBase pbModel (ms, o)
+
+    let deserializeF<'T> ms = deserializeFBase<'T> pbModel ms

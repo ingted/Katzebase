@@ -12,7 +12,7 @@ namespace NTDLS.Katzebase.Engine.Functions.Parameters
 
         public FunctionExpressionType ExpressionType { get; set; }
 
-        public fstring Value { get; set; } = fstring.Empty;
+        public fstring Value { get; set; } = fstring.SEmpty;
         public List<FunctionParameterBase> Parameters { get; private set; } = new();
     }
 }

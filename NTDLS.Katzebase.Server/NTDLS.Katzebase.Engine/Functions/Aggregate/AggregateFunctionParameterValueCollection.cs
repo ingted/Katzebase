@@ -16,7 +16,7 @@ namespace NTDLS.Katzebase.Engine.Functions.Aggregate
                 var parameter = Values.FirstOrDefault(o => o.Parameter.Name.Is(name))
                     ?? throw new KbGenericException($"Value for {name} cannot be null.");
 
-                var paramValue = fstring.Empty;
+                var paramValue = fstring.Unassigned;
 
                 if (parameter.Value is AggregateDecimalArrayParameter)
                 {

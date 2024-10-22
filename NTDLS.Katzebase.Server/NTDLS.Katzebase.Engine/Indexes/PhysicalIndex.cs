@@ -27,9 +27,9 @@ namespace NTDLS.Katzebase.Engine.Indexes
         public uint ComputePartition(fstring? value)
         {
             uint hash = 0;
-            if (fstring.IsNullOrEmpty(value))
+            if (fstring.SIsNullOrEmpty(value))
                 return hash;
-            value = value?.ToLowerInvariant() ?? fstring.Empty;
+            value = value?.ToLowerInvariant() ?? fstring.SEmpty;
             const uint seed = 131;
             foreach (char c in value.s)
             {

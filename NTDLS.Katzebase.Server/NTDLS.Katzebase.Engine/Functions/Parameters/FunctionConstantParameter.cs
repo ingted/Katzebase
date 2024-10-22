@@ -4,7 +4,7 @@ namespace NTDLS.Katzebase.Engine.Functions.Parameters
 {
     internal class FunctionConstantParameter : FunctionParameterBase
     {
-        public fstring RawValue { get; set; } = fstring.Empty;
+        public fstring RawValue { get; set; } = fstring.Unassigned;
 
         /// <summary>
         /// This is the value that should be used for "user code". It removes the quotes from constant parameters.

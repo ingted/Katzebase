@@ -85,7 +85,7 @@ namespace NTDLS.Katzebase.Engine.Interactions.QueryHandlers
 
                     for (int i = 0; i < result.Fields.Count; i++)
                     {
-                        document.Add(result.Fields[i].Name, row.Values[i] ?? fstring.Empty);
+                        document.Add(result.Fields[i].Name, row.Values[i] ?? fstring.SEmpty);
                     }
                     string documentContent = JsonConvert.SerializeObject(document);
 
@@ -121,7 +121,7 @@ namespace NTDLS.Katzebase.Engine.Interactions.QueryHandlers
 
                     foreach (var updateValue in upsertValues)
                     {
-                        fstring? fieldValue = fstring.Empty;
+                        fstring? fieldValue = fstring.Unassigned;
 
                         //Execute functions
                         if (updateValue.Value is FunctionWithParams || updateValue.Value is FunctionExpression)
@@ -188,7 +188,7 @@ namespace NTDLS.Katzebase.Engine.Interactions.QueryHandlers
 
                     foreach (var updateValue in preparedQuery.UpdateValues)
                     {
-                        fstring? fieldValue = fstring.Empty;
+                        fstring? fieldValue = fstring.Unassigned;
 
                         //Execute functions
                         if (updateValue.Value is FunctionWithParams || updateValue.Value is FunctionExpression)

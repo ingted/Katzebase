@@ -3,6 +3,6 @@
     using fs;
     internal class AggregateSingleParameter : AggregateGenericParameter
     {
-        public fstring Value { get; set; } = fstring.Empty;
+        public fstring Value { get; set; } = fstring.Unassigned;
     }
 }

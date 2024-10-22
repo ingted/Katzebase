@@ -8,7 +8,7 @@ open System.Reflection
 
 
 [<assembly: System.Reflection.AssemblyCompanyAttribute("fstring")>]
-[<assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")>]
+[<assembly: System.Reflection.AssemblyConfigurationAttribute("Release")>]
 [<assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")>]
 [<assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a998818f18647d025a99d27bd395403fdf9cf768")>]
 [<assembly: System.Reflection.AssemblyProductAttribute("fstring")>]

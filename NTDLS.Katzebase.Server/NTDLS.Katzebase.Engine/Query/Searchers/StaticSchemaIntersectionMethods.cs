@@ -419,7 +419,7 @@ namespace NTDLS.Katzebase.Engine.Query.Searchers
                         {
                             throw new KbEngineException($"Join clause field not found in document [{currentSchemaKVP.Key}].");
                         }
-                        joinKeyValues[condition.Right?.Value?.s ?? ""] = documentValue ?? fstring.Empty;
+                        joinKeyValues[condition.Right?.Value?.s ?? ""] = documentValue ?? fstring.SEmpty;
                     }
                 }
 

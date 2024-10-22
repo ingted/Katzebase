@@ -34,12 +34,12 @@ namespace NTDLS.Katzebase.Engine.Query.Searchers.Intersection
                     Values.AddRange(fstring.fromStringArr(r));
                 }
             }
-            //if (Values[ordinal] != null)
-            //{
-            //    throw new KbEngineException($"Ambiguous field [{fieldNameForException}].");
-            //}
+            if (fstring.Compare(Values[ordinal], fstring.SNull) != 0)
+            {
+                throw new KbEngineException($"Ambiguous field [{fieldNameForException}].");
+            }
 
-            //Values[ordinal] = value;
+            Values[ordinal] = value;
         }
 
         public void AddSchemaDocumentPointer(string schemaPrefix, DocumentPointer documentPointer)

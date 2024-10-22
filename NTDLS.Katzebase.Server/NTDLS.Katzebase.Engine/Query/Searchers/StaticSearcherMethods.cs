@@ -53,7 +53,7 @@ namespace NTDLS.Katzebase.Engine.Query.Searchers
                     {
                         physicalDocument.Elements.TryGetValue(field.Name, out fstring? element);
                         //resultRow.AddValue(element?.ToString().toF() ?? fstring.Empty);
-                        resultRow.AddValue(element ?? fstring.Empty);
+                        resultRow.AddValue(element ?? fstring.SEmpty);
                     }
 
                     result.Rows.Add(resultRow);
@@ -92,7 +92,7 @@ namespace NTDLS.Katzebase.Engine.Query.Searchers
                 {
                     persistDocument.Elements.TryGetValue(field.Name, out fstring? element);
                     //resultRow.AddValue(element?.ToString().toF() ?? fstring.Empty);
-                    resultRow.AddValue(element ?? fstring.Empty);
+                    resultRow.AddValue(element ?? fstring.SEmpty);
                 }
 
                 result.Rows.Add(resultRow);
