@@ -13,6 +13,21 @@ type fstring =
 | D of double
 | A of fstring []
 | T of string * fstring
+    member this.toJsonString() =
+        let rec toJson (f: fstring) =
+            match f with
+            | S s -> sprintf "%s" s
+            | D d -> sprintf "%f" d
+            | A arr ->
+                let elements = arr |> Array.map toJson |> String.concat ", "
+                sprintf "[%s]" elements
+            | T (key, value) ->
+                let keyStr = sprintf "%s" key
+                let valueStr = toJson value
+                sprintf "%s: %s" keyStr valueStr
+
+        toJson this
+
     static member compareArrays (arr1: fstring array) (arr2: fstring array): int =
         Seq.zip arr1 arr2
         |> Seq.tryPick (fun (x, y) ->

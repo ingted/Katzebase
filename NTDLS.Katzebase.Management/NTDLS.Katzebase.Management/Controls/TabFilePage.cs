@@ -657,7 +657,7 @@ namespace NTDLS.Katzebase.Management.Controls
                             rowValues.Add(fieldValue ?? fstring.SEmpty);
                         }
 
-                        var item = new ListViewItem(rowValues.Select(s => s.s).ToArray());
+                        var item = new ListViewItem(rowValues.Select(s => s.toJsonString()).ToArray());
 
                         outputGrid.Items.Add(item);
 

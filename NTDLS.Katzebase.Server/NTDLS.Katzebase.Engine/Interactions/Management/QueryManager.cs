@@ -56,7 +56,8 @@ namespace NTDLS.Katzebase.Engine.Interactions.Management
         /// <exception cref="KbMultipleRecordSetsException"></exception>
         internal IEnumerable<T> ExecuteQuery<T>(SessionState session, string queryText, object? userParameters = null) where T : new()
         {
-            var preparedQueries = StaticQueryParser.ParseBatch(_core, queryText, userParameters.ToUserParametersInsensitiveDictionary());
+            var up = userParameters.ToUserParametersInsensitiveDictionary();
+            var preparedQueries = StaticQueryParser.ParseBatch(_core, queryText, up);
             if (preparedQueries.Count > 1)
             {
                 throw new KbMultipleRecordSetsException("Prepare batch resulted in more than one query.");
