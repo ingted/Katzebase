@@ -6,3 +6,4 @@
 
 # Renamed nested Git administration directories are local metadata, not source.
 **/_.git/**
+.vs/
