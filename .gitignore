@@ -1,0 +1,8 @@
+# Generated .NET build outputs. NuGet packages remain eligible for tracking.
+**/bin/**
+!**/bin/**/
+!**/bin/**/*.nupkg
+**/obj/**
+
+# Renamed nested Git administration directories are local metadata, not source.
+**/_.git/**
